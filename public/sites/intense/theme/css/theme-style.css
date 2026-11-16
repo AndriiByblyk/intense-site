@@ -1,0 +1,2032 @@
+/*!
+Theme Name: SelectED
+*/
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #02030466;
+}
+
+.media-card__btn{
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    #bingc-phone-button {
+        left: auto !important;
+        right: 10px !important;
+        bottom: 90px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #bingc-phone-button {
+        left: auto !important;
+        right: 8px !important;
+        bottom: 90px !important;
+    }
+
+    #bingc-phone-button .bingc-phone-button-tooltip,
+    #bingc-phone-button-tooltip {
+        left: auto !important;
+        right: 55px !important;
+    }
+}
+
+
+
+
+
+
+
+/* Зміна кольору кнопки зателефонуйте*/
+#bingc-passive #bingc-passive-phone-form-button.bingc-passive-phone-form-button {
+    background: #1f1f1f !important;
+    color: #ffffff !important;
+}
+
+#bingc-passive #bingc-passive-phone-form-button.bingc-passive-phone-form-button:hover {
+    background: #333333 !important;
+}
+
+/* Забрали назву binotel*/
+#bingc-powered-by-passive-overlay {
+    display: none !important;
+}
+
+
+/* =========================================
+   Кінець
+   ========================================= */
+
+/* =========================================
+   Binotel GetCall — compact desktop
+   ========================================= */
+
+@media (min-width: 768px) {
+
+    #bingc-passive div.bingc-passive-overlay {
+        width: 900px !important;
+        height: 400px !important;
+
+        border-radius: 22px !important;
+        overflow: hidden !important;
+    }
+
+    #bingc-passive .bingc-we-will-call-you {
+        font-size: 28px !important;
+        line-height: 1.25 !important;
+    }
+
+    #bingc-passive #bingc-passive-get-phone-form-input {
+        font-size: 17px !important;
+    }
+
+    #bingc-passive #bingc-passive-phone-form-button {
+        font-size: 18px !important;
+    }
+
+    #bingc-passive #bingc-phone-sample {
+        font-size: 11px !important;
+    }
+}
+/* =========================================
+   Кінець
+   ========================================= */
+
+/* =========================================
+   Binotel GetCall — mobile
+   ========================================= */
+
+@media (max-width: 767px) {
+
+    #bingc-passive div.bingc-passive-overlay {
+        width: calc(100vw - 20px) !important;
+        max-width: calc(100vw - 20px) !important;
+
+        border-radius: 18px !important;
+    }
+
+    #bingc-passive .bingc-we-will-call-you {
+        font-size: 21px !important;
+        line-height: 1.3 !important;
+    }
+
+    #bingc-passive #bingc-passive-get-phone-form-input {
+        font-size: 15px !important;
+    }
+
+    #bingc-passive #bingc-passive-phone-form-button {
+        font-size: 15px !important;
+    }
+
+    #bingc-passive #bingc-phone-sample {
+        font-size: 10px !important;
+    }
+}
+
+
+/* Прибираємо статистику на всіх пристроях */
+#bingc-passive .bingc-statistics {
+    display: none !important;
+}
+
+/* =========================================
+   Кінець
+   ========================================= */
+
+
+/* =========================================
+   Binotel GetCall — active bottom form Нижня форма зателефонуйте
+   ========================================= */
+
+@media (min-width: 768px) {
+
+    /* Сам нижній блок */
+    #bingc-active {
+        width: 820px !important;
+        height: 92px !important;
+
+        left: 50% !important;
+        right: auto !important;
+        bottom: 20px !important;
+
+        transform: translateX(-50%) !important;
+
+        background: #f5f5f7 !important;
+
+        border-radius: 22px !important;
+
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18) !important;
+
+        overflow: hidden !important;
+    }
+
+    /* Внутрішній контейнер */
+    #bingc-active .bingc-active-overlay {
+        width: 100% !important;
+        height: 100% !important;
+
+        background: transparent !important;
+
+        border-radius: 22px !important;
+    }
+
+    /* Прибираємо текст "Хочете, зателефонуємо..." */
+    #bingc-active .bingc-we-will-call-you {
+        display: none !important;
+    }
+
+    /* Поле телефону */
+    #bingc-active input[type="tel"] {
+        font-size: 16px !important;
+    }
+
+    /* Кнопка */
+    #bingc-active [id*="phone-form-button"] {
+        background: #1f1f1f !important;
+        color: #ffffff !important;
+
+        font-size: 17px !important;
+    }
+
+    #bingc-active [id*="phone-form-button"]:hover {
+        background: #333333 !important;
+    }
+
+    /* Прибираємо Binotel branding */
+    #bingc-powered-by-active-overlay {
+        display: none !important;
+    }
+}
+/* =========================================
+   Кінець
+   ========================================= */
+
+/* =========================================================
+   SELECT | ED — BINOTEL FLOATING CALLBACK
+   Custom tooth button + tooltip
+   ========================================================= */
+
+/* =========================================================
+   SELECT | ED — BINOTEL FLOATING CALLBACK
+   Оновлений стиль: зуб + темний tooltip
+   ========================================================= */
+
+
+/* =========================================================
+   SELECT | ED — BINOTEL FLOATING CALLBACK
+   Same visual style as site CTA buttons
+   ========================================================= */
+
+
+/* =========================================================
+   1. ЗУБ
+   ========================================================= */
+
+#bingc-phone-button {
+
+    --tooth-angle: 0deg;
+
+    width: 82px !important;
+    height: 92px !important;
+
+    position: fixed !important;
+
+    background-color: transparent !important;
+
+    /*
+     * Темний зуб + біла трубка всередині
+     */
+    background-image: url("data:image/svg+xml,%3Csvg width='82' height='92' viewBox='0 0 82 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41 7C32 7 27 3 18 6C8 10 4 21 6 33C8 45 16 51 19 62C22 74 23 85 31 85C37 85 37 69 41 69C45 69 45 85 51 85C59 85 60 74 63 62C66 51 74 45 76 33C78 21 74 10 64 6C55 3 50 7 41 7Z' fill='%23121212' stroke='%23666666' stroke-width='1.5'/%3E%3Cpath d='M33 34C34 40 38 46 45 49' fill='none' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M32 33L36 29' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M45 49L49 44' stroke='%23ffffff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    overflow: visible !important;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease !important;
+}
+
+
+/* =========================================================
+   2. ПРИБИРАЄМО СТАНДАРТНУ ГРАФІКУ BINOTEL
+   ========================================================= */
+
+#bingc-phone-button > svg,
+#bingc-phone-button .bingc-phone-button-circle,
+#bingc-phone-button .bingc-phone-button-circle-outside,
+#bingc-phone-button .bingc-phone-button-circle-inside,
+#bingc-phone-button-icon,
+#bingc-phone-button-icon-text,
+#bingc-phone-button .bingc-phone-button-icon {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   3. РУХОМИЙ КОНТУР ЗУБА
+   ========================================================= */
+
+#bingc-phone-button::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    background:
+        conic-gradient(
+            from var(--tooth-angle),
+
+            transparent 0deg,
+            transparent 215deg,
+
+            rgba(255,255,255,0.03) 235deg,
+            rgba(255,255,255,0.08) 250deg,
+            rgba(255,255,255,0.16) 265deg,
+            rgba(255,255,255,0.28) 280deg,
+            rgba(255,255,255,0.42) 295deg,
+            rgba(255,255,255,0.52) 310deg,
+            rgba(255,255,255,0.42) 325deg,
+            rgba(255,255,255,0.28) 338deg,
+            rgba(255,255,255,0.16) 348deg,
+            rgba(255,255,255,0.08) 355deg,
+            rgba(255,255,255,0.03) 359deg,
+
+            transparent 360deg
+        ) !important;
+
+    /*
+     * Маска повторює саме контур зуба
+     */
+    -webkit-mask-image:
+        url("data:image/svg+xml,%3Csvg width='82' height='92' viewBox='0 0 82 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41 7C32 7 27 3 18 6C8 10 4 21 6 33C8 45 16 51 19 62C22 74 23 85 31 85C37 85 37 69 41 69C45 69 45 85 51 85C59 85 60 74 63 62C66 51 74 45 76 33C78 21 74 10 64 6C55 3 50 7 41 7Z' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E") !important;
+
+    mask-image:
+        url("data:image/svg+xml,%3Csvg width='82' height='92' viewBox='0 0 82 92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41 7C32 7 27 3 18 6C8 10 4 21 6 33C8 45 16 51 19 62C22 74 23 85 31 85C37 85 37 69 41 69C45 69 45 85 51 85C59 85 60 74 63 62C66 51 74 45 76 33C78 21 74 10 64 6C55 3 50 7 41 7Z' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E") !important;
+
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+
+    -webkit-mask-position: center !important;
+    mask-position: center !important;
+
+    -webkit-mask-size: contain !important;
+    mask-size: contain !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    transition: opacity 0.25s ease !important;
+}
+
+
+/* Старий блиск прибираємо */
+#bingc-phone-button::after {
+
+    display: none !important;
+    content: none !important;
+}
+
+
+/* =========================================================
+   4. HOVER ЗУБА
+   ========================================================= */
+
+#bingc-phone-button:hover {
+
+    transform: translateY(-1px) !important;
+
+    filter:
+        drop-shadow(0 10px 18px rgba(0,0,0,0.24)) !important;
+}
+
+
+#bingc-phone-button:hover::before {
+
+    opacity: 1 !important;
+
+    animation:
+        selected-tooth-border-flow 5.5s linear infinite !important;
+}
+
+
+@property --tooth-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+@keyframes selected-tooth-border-flow {
+
+    from {
+        --tooth-angle: 0deg;
+    }
+
+    to {
+        --tooth-angle: 360deg;
+    }
+}
+
+
+/* =========================================================
+   5. ТЕКСТОВИЙ BUBBLE
+   ========================================================= */
+
+#bingc-phone-button-tooltip,
+#bingc-phone-button .bingc-phone-button-tooltip {
+
+    background: rgba(18, 18, 18, 0.70) !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+
+    border-radius: 14px !important;
+
+    padding: 14px 18px !important;
+
+    font-family: inherit !important;
+
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.35 !important;
+
+    letter-spacing: 0.2px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.16) !important;
+
+    overflow: visible !important;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease !important;
+}
+
+
+/* =========================================================
+   6. ХВОСТИК BUBBLE
+   ========================================================= */
+
+#bingc-phone-button-tooltip::after,
+#bingc-phone-button .bingc-phone-button-tooltip::after {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    left: 28px !important;
+    bottom: -9px !important;
+
+    width: 16px !important;
+    height: 16px !important;
+
+    background: rgba(18, 18, 18, 0.96) !important;
+
+    border-right: 1px solid rgba(255,255,255,0.38) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.38) !important;
+
+    transform: rotate(45deg) !important;
+
+    pointer-events: none !important;
+}
+
+
+/* Прибираємо старий декоративний before */
+#bingc-phone-button-tooltip::before,
+#bingc-phone-button .bingc-phone-button-tooltip::before {
+
+    display: none !important;
+    content: none !important;
+}
+
+
+/* =========================================================
+   7. DESKTOP POSITION
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    #bingc-phone-button {
+
+        left: 28px !important;
+        right: auto !important;
+
+        bottom: 28px !important;
+    }
+}
+
+
+/* =========================================================
+   8. MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    #bingc-phone-button {
+
+        width: 72px !important;
+        height: 82px !important;
+
+        left: auto !important;
+        right: 8px !important;
+
+        bottom: 90px !important;
+    }
+
+
+    #bingc-phone-button-tooltip,
+    #bingc-phone-button .bingc-phone-button-tooltip {
+
+        left: auto !important;
+        right: 58px !important;
+
+        max-width: 190px !important;
+
+        padding: 12px 15px !important;
+
+        border-radius: 12px !important;
+
+        font-size: 13px !important;
+    }
+
+
+    #bingc-phone-button-tooltip::after,
+    #bingc-phone-button .bingc-phone-button-tooltip::after {
+
+        left: auto !important;
+        right: 27px !important;
+    }
+}
+
+
+/* =========================================================
+   9. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #bingc-phone-button:hover::before {
+
+        animation: none !important;
+    }
+
+    #bingc-phone-button:hover {
+
+        transform: none !important;
+    }
+}
+
+
+
+/* =========================================================
+   BINOTEL TOOLTIP — final dark CTA style
+   ========================================================= */
+
+/* Сам блок з текстом */
+#bingc-phone-button div#bingc-phone-button-tooltip.bingc-phone-button-tooltip {
+    background: rgba(18, 18, 18, 0.88) !important;
+    background-color: rgba(18, 18, 18, 0.88) !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+    border-radius: 14px !important;
+
+    padding: 14px 18px !important;
+
+    font-family: inherit !important;
+    letter-spacing: 0.2px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.18) !important;
+
+    overflow: visible !important;
+}
+
+
+/* Прибираємо стандартний помаранчевий хвостик Binotel */
+#bingc-phone-button-tooltip .bingc-phone-button-arrow {
+    display: none !important;
+}
+
+
+/* Наш хвостик у стилі кнопки */
+#bingc-phone-button div#bingc-phone-button-tooltip.bingc-phone-button-tooltip::after {
+    content: "" !important;
+
+    display: block !important;
+
+    position: absolute !important;
+
+    left: 28px !important;
+    bottom: -8px !important;
+
+    width: 14px !important;
+    height: 14px !important;
+
+    background: rgba(18, 18, 18, 0.94) !important;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.38) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38) !important;
+
+    transform: rotate(45deg) !important;
+
+    z-index: -1 !important;
+
+    pointer-events: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   SELECT | ED — MAIN CONSULTATION CTA
+   Minimal glass button + smooth animated border
+   ========================================================= */
+
+
+/* =========================================================
+   1. ОСНОВНА КНОПКА
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation,
+.mobile-menu__btns > .group-btns.js-plan-consultation {
+
+    --cta-angle: 0deg;
+
+    position: relative !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 4px !important;
+
+    background: rgba(18, 18, 18, 0.70) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+
+    /* Менш округлені кути */
+    border-radius: 14px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.16) !important;
+
+    overflow: visible !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+
+/* =========================================================
+   2. ТЕКСТ — ЧІТКО ПО ЦЕНТРУ
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation > .group-btns__text-btn,
+.mobile-menu__btns > .group-btns.js-plan-consultation > .group-btns__text-btn {
+
+    min-width: 190px !important;
+    height: 46px !important;
+
+    padding: 0 24px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    color: #ffffff !important;
+
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    white-space: nowrap !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   3. ПРИБИРАЄМО ПРАВУ ЧАСТИНУ / СТРІЛКУ
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation > .group-btns__img-btn,
+.mobile-menu__btns > .group-btns.js-plan-consultation > .group-btns__img-btn {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   4. РУХОМИЙ М'ЯКИЙ БЛИСК ПО КОНТУРУ
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation::before,
+.mobile-menu__btns > .group-btns.js-plan-consultation::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: -1.5px !important;
+
+    padding: 1.5px !important;
+
+    border-radius: 15px !important;
+
+    background:
+        conic-gradient(
+            from var(--cta-angle),
+
+            transparent 0deg,
+            transparent 215deg,
+
+            rgba(255,255,255,0.03) 235deg,
+            rgba(255,255,255,0.08) 250deg,
+            rgba(255,255,255,0.16) 265deg,
+            rgba(255,255,255,0.28) 280deg,
+            rgba(255,255,255,0.42) 295deg,
+            rgba(255,255,255,0.52) 310deg,
+            rgba(255,255,255,0.42) 325deg,
+            rgba(255,255,255,0.28) 338deg,
+            rgba(255,255,255,0.16) 348deg,
+            rgba(255,255,255,0.08) 355deg,
+            rgba(255,255,255,0.03) 359deg,
+
+            transparent 360deg
+        ) !important;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0) !important;
+
+    -webkit-mask-composite: xor !important;
+
+    mask-composite: exclude !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    z-index: 2 !important;
+
+    transition:
+        opacity 0.25s ease !important;
+}
+
+
+/* =========================================================
+   5. HOVER КНОПКИ
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation:hover,
+.mobile-menu__btns > .group-btns.js-plan-consultation:hover {
+
+    background: rgba(13, 13, 13, 0.86) !important;
+
+    transform: translateY(-1px) !important;
+
+    box-shadow:
+        0 12px 34px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+/* =========================================================
+   6. ЗАПУСК РУХУ СВІТЛА
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation:hover::before,
+.mobile-menu__btns > .group-btns.js-plan-consultation:hover::before {
+
+    opacity: 1 !important;
+
+    animation:
+        selected-cta-border-flow 5.5s linear infinite !important;
+}
+
+
+/* =========================================================
+   7. АНІМАЦІЯ — БЕЗ ЗУПИНОК
+   ========================================================= */
+
+@property --cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes selected-cta-border-flow {
+
+    from {
+        --cta-angle: 0deg;
+    }
+
+    to {
+        --cta-angle: 360deg;
+    }
+}
+
+
+/* =========================================================
+   8. MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .main__btns-container > .group-btns.js-plan-consultation,
+    .mobile-menu__btns > .group-btns.js-plan-consultation {
+
+        padding: 3px !important;
+
+        border-radius: 12px !important;
+    }
+
+
+    .main__btns-container > .group-btns.js-plan-consultation::before,
+    .mobile-menu__btns > .group-btns.js-plan-consultation::before {
+
+        border-radius: 13px !important;
+    }
+
+
+    .main__btns-container > .group-btns.js-plan-consultation > .group-btns__text-btn,
+    .mobile-menu__btns > .group-btns.js-plan-consultation > .group-btns__text-btn {
+
+        min-width: 170px !important;
+
+        height: 42px !important;
+
+        padding: 0 20px !important;
+
+        font-size: 14px !important;
+    }
+}
+
+
+/* =========================================================
+   9. ACCESSIBILITY
+   Якщо користувач вимкнув анімації в системі
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .main__btns-container > .group-btns.js-plan-consultation:hover::before,
+    .mobile-menu__btns > .group-btns.js-plan-consultation:hover::before {
+
+        animation: none !important;
+    }
+
+
+    .main__btns-container > .group-btns.js-plan-consultation:hover,
+    .mobile-menu__btns > .group-btns.js-plan-consultation:hover {
+
+        transform: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+/* =========================================================
+   SELECT | ED — SERVICES CTA
+   "Створити усмішку разом"
+   ========================================================= */
+
+
+/* Основна кнопка */
+.services__card-btns .group-btns {
+
+    --services-cta-angle: 0deg;
+
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+
+    padding: 4px !important;
+
+    background: rgba(18, 18, 18, 0.70) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+
+    border-radius: 14px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.16) !important;
+
+    overflow: visible !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+
+/* =========================================================
+   Текст
+   ========================================================= */
+
+.services__card-btns .group-btns__text-btn {
+
+    width: 100% !important;
+    min-height: 46px !important;
+
+    padding: 0 22px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    color: #ffffff !important;
+
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+
+    text-align: center !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   Прибираємо окрему круглу кнопку зі стрілкою
+   ========================================================= */
+
+.services__card-btns .group-btns__img-btn {
+    display: none !important;
+}
+
+
+/* =========================================================
+   Плавний рух світла по контуру
+   ========================================================= */
+
+.services__card-btns .group-btns::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: -1.5px !important;
+
+    padding: 1.5px !important;
+
+    border-radius: 15px !important;
+
+    background:
+        conic-gradient(
+            from var(--services-cta-angle),
+
+            transparent 0deg,
+            transparent 215deg,
+
+            rgba(255,255,255,0.03) 235deg,
+            rgba(255,255,255,0.08) 250deg,
+            rgba(255,255,255,0.16) 265deg,
+            rgba(255,255,255,0.28) 280deg,
+            rgba(255,255,255,0.42) 295deg,
+            rgba(255,255,255,0.52) 310deg,
+            rgba(255,255,255,0.42) 325deg,
+            rgba(255,255,255,0.28) 338deg,
+            rgba(255,255,255,0.16) 348deg,
+            rgba(255,255,255,0.08) 355deg,
+            rgba(255,255,255,0.03) 359deg,
+
+            transparent 360deg
+        ) !important;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0) !important;
+
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    z-index: 2 !important;
+
+    transition: opacity 0.25s ease !important;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.services__card-btns .group-btns:hover {
+
+    background: rgba(13, 13, 13, 0.88) !important;
+
+    transform: translateY(-1px) !important;
+
+    box-shadow:
+        0 12px 34px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+.services__card-btns .group-btns:hover::before {
+
+    opacity: 1 !important;
+
+    animation:
+        services-cta-border-flow 5.5s linear infinite !important;
+}
+
+
+/* =========================================================
+   АНІМАЦІЯ
+   ========================================================= */
+
+@property --services-cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+@keyframes services-cta-border-flow {
+
+    from {
+        --services-cta-angle: 0deg;
+    }
+
+    to {
+        --services-cta-angle: 360deg;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .services__card-btns .group-btns {
+
+        padding: 3px !important;
+
+        border-radius: 12px !important;
+    }
+
+
+    .services__card-btns .group-btns::before {
+
+        border-radius: 13px !important;
+    }
+
+
+    .services__card-btns .group-btns__text-btn {
+
+        min-height: 42px !important;
+
+        padding: 0 18px !important;
+
+        font-size: 14px !important;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .services__card-btns .group-btns:hover::before {
+        animation: none !important;
+    }
+
+    .services__card-btns .group-btns:hover {
+        transform: none !important;
+    }
+}
+
+
+
+
+
+
+/* =========================================================
+   SELECT | ED — FORM SUBMIT CTA
+   "Запланувати консультацію"
+   ========================================================= */
+
+
+/* =========================================================
+   1. КОНТЕЙНЕР КНОПКИ
+   ========================================================= */
+
+.form__btns > .group-btns {
+
+    --form-cta-angle: 0deg;
+
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+
+    padding: 4px !important;
+
+    background: rgba(18, 18, 18, 0.70) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+    border-radius: 14px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.16) !important;
+
+    overflow: visible !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+
+/* =========================================================
+   2. ТЕКСТ КНОПКИ
+   ========================================================= */
+
+.form__btns > .group-btns > .group-btns__text-btn {
+
+    width: 100% !important;
+    min-height: 46px !important;
+
+    padding: 0 24px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    color: #ffffff !important;
+
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+
+    text-align: center !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   3. ПРИБИРАЄМО ОКРЕМУ КРУГЛУ КНОПКУ ЗІ СТРІЛКОЮ
+   ========================================================= */
+
+.form__btns > .group-btns > .group-btns__img-btn {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   4. ПЛАВНИЙ БЛИСК ПО КОНТУРУ
+   ========================================================= */
+
+.form__btns > .group-btns::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: -1.5px !important;
+
+    padding: 1.5px !important;
+
+    border-radius: 15px !important;
+
+    background:
+        conic-gradient(
+            from var(--form-cta-angle),
+
+            transparent 0deg,
+            transparent 215deg,
+
+            rgba(255,255,255,0.03) 235deg,
+            rgba(255,255,255,0.08) 250deg,
+            rgba(255,255,255,0.16) 265deg,
+            rgba(255,255,255,0.28) 280deg,
+            rgba(255,255,255,0.42) 295deg,
+            rgba(255,255,255,0.52) 310deg,
+            rgba(255,255,255,0.42) 325deg,
+            rgba(255,255,255,0.28) 338deg,
+            rgba(255,255,255,0.16) 348deg,
+            rgba(255,255,255,0.08) 355deg,
+            rgba(255,255,255,0.03) 359deg,
+
+            transparent 360deg
+        ) !important;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0) !important;
+
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    z-index: 2 !important;
+
+    transition: opacity 0.25s ease !important;
+}
+
+
+/* =========================================================
+   5. HOVER
+   ========================================================= */
+
+.form__btns > .group-btns:hover {
+
+    background: rgba(13, 13, 13, 0.88) !important;
+
+    transform: translateY(-1px) !important;
+
+    box-shadow:
+        0 12px 34px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+.form__btns > .group-btns:hover::before {
+
+    opacity: 1 !important;
+
+    animation:
+        form-cta-border-flow 5.5s linear infinite !important;
+}
+
+
+/* =========================================================
+   6. АНІМАЦІЯ
+   ========================================================= */
+
+@property --form-cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+@keyframes form-cta-border-flow {
+
+    from {
+        --form-cta-angle: 0deg;
+    }
+
+    to {
+        --form-cta-angle: 360deg;
+    }
+}
+
+
+/* =========================================================
+   7. MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .form__btns > .group-btns {
+
+        padding: 3px !important;
+
+        border-radius: 12px !important;
+    }
+
+
+    .form__btns > .group-btns::before {
+
+        border-radius: 13px !important;
+    }
+
+
+    .form__btns > .group-btns > .group-btns__text-btn {
+
+        min-height: 42px !important;
+
+        padding: 0 18px !important;
+
+        font-size: 14px !important;
+    }
+}
+
+
+/* =========================================================
+   8. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .form__btns > .group-btns:hover::before {
+        animation: none !important;
+    }
+
+    .form__btns > .group-btns:hover {
+        transform: none !important;
+    }
+}
+
+
+
+
+/* =========================================================
+   SELECT | ED — TEAM CARD CTA
+   "Запланувати консультацію"
+   ========================================================= */
+
+
+/* Основний контейнер кнопки */
+.team-card__btns .group-btns {
+
+    --team-cta-angle: 0deg;
+
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 100% !important;
+
+    padding: 4px !important;
+
+    background: rgba(18, 18, 18, 0.70) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+    border-radius: 14px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.16) !important;
+
+    overflow: visible !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+
+/* Текст */
+.team-card__btns .group-btns__text-btn {
+
+    width: 100% !important;
+    min-height: 46px !important;
+
+    padding: 0 22px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    color: #ffffff !important;
+
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.2 !important;
+
+    text-align: center !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* Прибираємо круглу кнопку зі стрілкою */
+.team-card__btns .group-btns__img-btn {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   Плавний рух світла по контуру
+   ========================================================= */
+
+.team-card__btns .group-btns::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: -1.5px !important;
+
+    padding: 1.5px !important;
+
+    border-radius: 15px !important;
+
+    background:
+        conic-gradient(
+            from var(--team-cta-angle),
+
+            transparent 0deg,
+            transparent 215deg,
+
+            rgba(255,255,255,0.03) 235deg,
+            rgba(255,255,255,0.08) 250deg,
+            rgba(255,255,255,0.16) 265deg,
+            rgba(255,255,255,0.28) 280deg,
+            rgba(255,255,255,0.42) 295deg,
+            rgba(255,255,255,0.52) 310deg,
+            rgba(255,255,255,0.42) 325deg,
+            rgba(255,255,255,0.28) 338deg,
+            rgba(255,255,255,0.16) 348deg,
+            rgba(255,255,255,0.08) 355deg,
+            rgba(255,255,255,0.03) 359deg,
+
+            transparent 360deg
+        ) !important;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0) !important;
+
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    z-index: 2 !important;
+
+    transition: opacity 0.25s ease !important;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.team-card__btns .group-btns:hover {
+
+    background: rgba(13, 13, 13, 0.88) !important;
+
+    transform: translateY(-1px) !important;
+
+    box-shadow:
+        0 12px 34px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+.team-card__btns .group-btns:hover::before {
+
+    opacity: 1 !important;
+
+    animation:
+        team-cta-border-flow 5.5s linear infinite !important;
+}
+
+
+/* =========================================================
+   АНІМАЦІЯ
+   ========================================================= */
+
+@property --team-cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+@keyframes team-cta-border-flow {
+
+    from {
+        --team-cta-angle: 0deg;
+    }
+
+    to {
+        --team-cta-angle: 360deg;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .team-card__btns .group-btns {
+
+        padding: 3px !important;
+        border-radius: 12px !important;
+    }
+
+
+    .team-card__btns .group-btns::before {
+
+        border-radius: 13px !important;
+    }
+
+
+    .team-card__btns .group-btns__text-btn {
+
+        min-height: 42px !important;
+
+        padding: 0 18px !important;
+
+        font-size: 14px !important;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .team-card__btns .group-btns:hover::before {
+        animation: none !important;
+    }
+
+    .team-card__btns .group-btns:hover {
+        transform: none !important;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   SELECT | ED — HEADER CTA
+   "Запланувати візит"
+   ========================================================= */
+
+
+/* Основний контейнер */
+.header__btns {
+
+    --header-cta-angle: 0deg;
+
+    position: relative !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 4px !important;
+
+    background: rgba(18, 18, 18, 0.70) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.38) !important;
+    border-radius: 14px !important;
+
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    box-shadow:
+        0 8px 28px rgba(0, 0, 0, 0.16) !important;
+
+    overflow: visible !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+
+/* =========================================================
+   ТЕКСТОВА КНОПКА
+   ========================================================= */
+
+.header__btns > .header__btn-text {
+
+    min-width: 170px !important;
+    height: 42px !important;
+
+    padding: 0 20px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+
+    text-align: center !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =========================================================
+   ПРИБИРАЄМО ОКРЕМУ КНОПКУ З КАЛЕНДАРЕМ
+   ========================================================= */
+
+.header__btns > .header__btn:not(.header__btn-text) {
+
+    display: none !important;
+}
+
+
+/* =========================================================
+   ПЛАВНИЙ БЛИСК ПО КОНТУРУ
+   ========================================================= */
+
+.header__btns::before {
+
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: -1.5px !important;
+
+    padding: 1.5px !important;
+
+    border-radius: 15px !important;
+
+    background:
+        conic-gradient(
+            from var(--header-cta-angle),
+
+            transparent 0deg,
+            transparent 215deg,
+
+            rgba(255,255,255,0.03) 235deg,
+            rgba(255,255,255,0.08) 250deg,
+            rgba(255,255,255,0.16) 265deg,
+            rgba(255,255,255,0.28) 280deg,
+            rgba(255,255,255,0.42) 295deg,
+            rgba(255,255,255,0.52) 310deg,
+            rgba(255,255,255,0.42) 325deg,
+            rgba(255,255,255,0.28) 338deg,
+            rgba(255,255,255,0.16) 348deg,
+            rgba(255,255,255,0.08) 355deg,
+            rgba(255,255,255,0.03) 359deg,
+
+            transparent 360deg
+        ) !important;
+
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0) !important;
+
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+
+    opacity: 0 !important;
+
+    pointer-events: none !important;
+
+    z-index: 2 !important;
+
+    transition: opacity 0.25s ease !important;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.header__btns:hover {
+
+    background: rgba(13, 13, 13, 0.88) !important;
+
+    transform: translateY(-1px) !important;
+
+    box-shadow:
+        0 12px 34px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+.header__btns:hover::before {
+
+    opacity: 1 !important;
+
+    animation:
+        header-cta-border-flow 5.5s linear infinite !important;
+}
+
+
+/* =========================================================
+   АНІМАЦІЯ
+   ========================================================= */
+
+@property --header-cta-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+@keyframes header-cta-border-flow {
+
+    from {
+        --header-cta-angle: 0deg;
+    }
+
+    to {
+        --header-cta-angle: 360deg;
+    }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .header__btns {
+
+        padding: 3px !important;
+        border-radius: 12px !important;
+    }
+
+
+    .header__btns::before {
+
+        border-radius: 13px !important;
+    }
+
+
+    .header__btns > .header__btn-text {
+
+        min-width: 150px !important;
+
+        height: 40px !important;
+
+        padding: 0 16px !important;
+
+        font-size: 13px !important;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .header__btns:hover::before {
+        animation: none !important;
+    }
+
+    .header__btns:hover {
+        transform: none !important;
+    }
+}
+/* Hide header CTA completely */
+.header__btns {
+    display: none !important;
+}
+
+
+/* =========================================================
+   SELECT | ED — CTA FONT
+   Використовуємо той самий шрифт, що й на сайті
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation > .group-btns__text-btn,
+.mobile-menu__btns > .group-btns.js-plan-consultation > .group-btns__text-btn,
+.services__card-btns .group-btns__text-btn,
+.team-card__btns .group-btns__text-btn,
+.form__btns > .group-btns > .group-btns__text-btn {
+
+    font-family: inherit !important;
+}
+
+/* SELECT | ED — CTA FONT */
+
+.main__btns-container > .group-btns.js-plan-consultation > .group-btns__text-btn,
+.mobile-menu__btns > .group-btns.js-plan-consultation > .group-btns__text-btn,
+.services__card-btns .group-btns__text-btn,
+.team-card__btns .group-btns__text-btn,
+.form__btns > .group-btns > .group-btns__text-btn {
+
+    font-family: inherit !important;
+    letter-spacing: 0.3px !important;
+}
+
+
+
+
+
+
+/* =========================================================
+   SELECT | ED — HERO TITLE REVEAL
+   Плавна поява тексту зверху вниз
+   ========================================================= */
+
+.main-top h1.left {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 42%,
+        transparent 58%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 42%,
+        transparent 58%,
+        transparent 100%
+    );
+
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+
+    -webkit-mask-position: 0 100%;
+    mask-position: 0 100%;
+
+    animation: hero-title-reveal 3.8s cubic-bezier(.22,.61,.36,1) forwards;
+
+    will-change: mask-position, -webkit-mask-position;
+}
+
+
+@keyframes hero-title-reveal {
+
+    from {
+        -webkit-mask-position: 0 100%;
+        mask-position: 0 100%;
+    }
+
+    to {
+        -webkit-mask-position: 0 0%;
+        mask-position: 0 0%;
+    }
+}
+
+
+/* Для користувачів, які вимкнули анімації */
+@media (prefers-reduced-motion: reduce) {
+
+    .main-top h1.left {
+        animation: none !important;
+
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+}
+
+
+
+
+
+
+
+/* =========================================================
+   SELECT | ED — HERO SECOND TEXT REVEAL
+   З'являється після головного заголовка
+   ========================================================= */
+
+.main-top .right p {
+
+    opacity: 0;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 42%,
+        transparent 58%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 42%,
+        transparent 58%,
+        transparent 100%
+    );
+
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+
+    -webkit-mask-position: 0 100%;
+    mask-position: 0 100%;
+
+    animation:
+        hero-second-text-reveal 2.8s cubic-bezier(.22,.61,.36,1) 1.0s forwards;
+
+    will-change:
+        opacity,
+        mask-position,
+        -webkit-mask-position;
+}
+
+
+@keyframes hero-second-text-reveal {
+
+    0% {
+        opacity: 0;
+
+        -webkit-mask-position: 0 100%;
+        mask-position: 0 100%;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+
+        -webkit-mask-position: 0 0%;
+        mask-position: 0 0%;
+    }
+}
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .main-top .right p {
+
+        opacity: 1 !important;
+
+        animation: none !important;
+
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+}
+
+
+
+/* =========================================================
+   HERO CTA — постійний рух світла по контуру
+   Тільки кнопка "Запланувати консультацію" на першому екрані
+   ========================================================= */
+
+.main__btns-container > .group-btns.js-plan-consultation::before {
+    opacity: 1 !important;
+
+    animation:
+        selected-cta-border-flow 5.5s linear infinite !important;
+}
+
+
+
+
+
+
+
+
+
