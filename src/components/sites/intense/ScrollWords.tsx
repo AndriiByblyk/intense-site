@@ -48,7 +48,7 @@ export function ScrollWords({ text, className }: { text: string; className?: str
   const parts = text.split(" ");
   const n = parts.length;
   return (
-    <h3 ref={ref} className={`sw ${className ?? ""}`} aria-label={text}>
+    <h2 ref={ref} className={`sw ${className ?? ""}`} aria-label={text}>
       {parts.map((w, i) => (
         <span key={i} aria-hidden="true">
           <span className="sw__w" style={{ "--p": i / n, "--q": 1 / n } as React.CSSProperties}>
@@ -57,6 +57,6 @@ export function ScrollWords({ text, className }: { text: string; className?: str
           {i < n - 1 ? " " : ""}
         </span>
       ))}
-    </h3>
+    </h2>
   );
 }

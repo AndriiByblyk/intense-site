@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { INDEXABLE, SITE, SITE_URL } from "./site";
+import { CATEGORIES } from "@/components/sites/intense/prices";
 import { Header } from "@/components/sites/intense/Header";
 import { Hero } from "@/components/sites/intense/Hero";
 import { About } from "@/components/sites/intense/About";
@@ -16,15 +18,65 @@ import { ASSET_V, v } from "@/components/sites/intense/assetVersion";
 const THEME = "/sites/intense/theme";
 
 export const metadata: Metadata = {
-  title: "INTENSE Dental Clinic",
-  description: "INTENSE Dental Clinic — естетична і функціональна стоматологія з комплексним підходом до здоров’я пацієнтів.",
-  robots: { index: false, follow: false }, // draft: keep out of search until content is final
-  icons: { icon: "/sites/intense/brand/favicon.svg" },
+  metadataBase: new URL(SITE_URL),
+  title: SITE.title,
+  description: SITE.description,
+  alternates: { canonical: "/" },
+  robots: INDEXABLE
+    ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } }
+    : { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: SITE.name,
+    title: SITE.title,
+    description: SITE.description,
+    locale: SITE.locale,
+  },
+  twitter: { card: "summary_large_image", title: SITE.title, description: SITE.description },
+  formatDetection: { telephone: false },
+};
+
+export const viewport: Viewport = { themeColor: "#0B0A07", colorScheme: "dark" };
+
+// schema.org data for search engines: the clinic, its address, hours and services.
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "@id": `${SITE_URL}/#clinic`,
+  name: SITE.name,
+  url: `${SITE_URL}/`,
+  description: SITE.description,
+  image: `${SITE_URL}/opengraph-image.jpg`,
+  logo: `${SITE_URL}/icon-512.png`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.region,
+    postalCode: SITE.address.postalCode,
+    addressCountry: SITE.address.country,
+  },
+  hasMap: SITE.maps,
+  sameAs: [SITE.instagram],
+  openingHoursSpecification: SITE.hours.map((h) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  medicalSpecialty: "Dentistry",
+  availableService: CATEGORIES.map((c) => ({ "@type": "MedicalProcedure", name: c.title })),
+  currenciesAccepted: "UAH",
 };
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD).replace(/</g, "\\u003c") }}
+      />
       <link rel="stylesheet" href={v(`${THEME}/css/reset.css`)} precedence="default" />
       <link rel="stylesheet" href={v(`${THEME}/css/style.css`)} precedence="default" />
       <link rel="stylesheet" href={v(`${THEME}/css/theme-style.css`)} precedence="default" />
