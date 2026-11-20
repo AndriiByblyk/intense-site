@@ -1408,6 +1408,10 @@ html { scroll-behavior: smooth; }
    the next section and back. */
 .ihero, .ihero .main__inner, .hero, .hero-video { height: 100vh; height: 100svh !important; }
 .hero { overflow: hidden; }
+/* Desktop hero file = the vertical film as a panel on the right (x 60–92 %).
+   On screens narrower than 16:9 (4:3 tablets, 16:10 laptops) cover crops the
+   sides; bias the crop right so the panel is never cut. */
+@media (min-width: 768px) { .hero-video { object-position: 85% 50%; } }
 /* Titles that light up word by word stay hidden until they are split, so they
    don't flash fully white first (fallback: shown after 3 s if scripts fail). */
 [text-split] { opacity: 0; animation: ts-fallback 0s linear 3s forwards; }
