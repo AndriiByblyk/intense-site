@@ -1,3 +1,4 @@
+import { IS_NY } from "./edition";
 import { Garland } from "./season/Garland";
 import { Decor } from "./motion/Decor";
 import { rise, wordCount } from "./motion/Rise";
@@ -10,7 +11,7 @@ export function Smile() {
     <section id="section-smiles-gallery" className="smile">
       <div className="container">
         <div className="smile__inner">
-          <Decor zone="smile" />
+          {IS_NY && <Decor zone="smile" />}
           <div className="section-label section-label-smile ismile__label" data-reveal>
             <span>Галерея усмішок</span>
             <img decoding="async" src="/sites/intense/theme/images/arrow-grey-bottom.svg" alt="" />
@@ -33,7 +34,7 @@ export function Smile() {
               Тягніть повзунок: «до» і «після»
             </p>
           </div>
-          <Garland className="ny-garland--smile" seed={11} />
+          {IS_NY && <Garland className="ny-garland--smile" seed={11} />}
           <Carousel name="smile" centreStart={1} clickToFront ignore=".cmp__handle, .smile-slide__btn" label="Галерея усмішок">
             {CASES.map((c, i) => (
               <div className="smile-card" key={c.id}>

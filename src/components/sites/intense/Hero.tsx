@@ -48,8 +48,12 @@ export function Hero() {
       </section>
       <div className="hero">
         <HeroVideo />
-        <GoldDust />
-        <Garland className="ny-garland--hero" seed={3} />
+        {IS_NY && (
+          <>
+            <GoldDust />
+            <Garland className="ny-garland--hero" seed={3} />
+          </>
+        )}
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import { IS_NY } from "./edition";
 import { Ribbon } from "./season/Ornaments";
 import { riseWords } from "./motion/Rise";
 import { useState } from "react";
@@ -59,7 +60,7 @@ export function Advice() {
       </div>
       <div className="container">
         <div className="bk__card" data-reveal>
-          <Ribbon className="ny-ribbon--bk" />
+          {IS_NY && <Ribbon className="ny-ribbon--bk" />}
           <div className="bk__intro">
             <div className="bk__label">
               <span className="bk__mark" aria-hidden="true">

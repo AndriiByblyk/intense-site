@@ -92,7 +92,7 @@ export default function Home() {
           <link rel="stylesheet" href={v("/sites/intense/season-ny.css")} precedence="high" />
         </>
       )}
-      <SeasonDefs />
+      {IS_NY && <SeasonDefs />}
       <Header />
       <main>
         <Hero />

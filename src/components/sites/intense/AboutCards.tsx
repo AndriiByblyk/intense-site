@@ -1,5 +1,6 @@
 "use client";
 
+import { IS_NY } from "./edition";
 import { Baubles } from "./season/Ornaments";
 import { useEffect, useRef, useState } from "react";
 
@@ -92,7 +93,7 @@ export function AboutCards() {
           <span className="abx__glow" aria-hidden="true" />
           {/* D2 · the reception's stone fills the empty half of the wide card */}
           {c.size === "full" && <span className="abx__stone" aria-hidden="true" />}
-          <Baubles card={i} />
+          {IS_NY && <Baubles card={i} />}
           <div className="abx__top">
             <span className="abx__num">{String(i + 1).padStart(2, "0")}</span>
             <span className="abx__mark" aria-hidden="true">

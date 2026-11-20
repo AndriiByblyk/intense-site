@@ -1,3 +1,4 @@
+import { IS_NY } from "./edition";
 import { GoldDust } from "./season/GoldDust";
 import { Garland } from "./season/Garland";
 import { rise } from "./motion/Rise";
@@ -14,9 +15,11 @@ const INSTAGRAM = "https://www.instagram.com/intense.dental.clinic";
 export function Footer() {
   return (
     <footer id="section-contacts" className="ifoot">
-      <div className="ny-dust-wrap">
-        <GoldDust />
-      </div>
+      {IS_NY && (
+        <div className="ny-dust-wrap">
+          <GoldDust />
+        </div>
+      )}
       <div className="container">
         {/* Desktop: an invitation with a big photo of the clinic's corner on top
             of the columns (phones keep the compact layout) */}
@@ -112,7 +115,7 @@ export function Footer() {
           </a>
         </div>
 
-        <Garland className="ny-garland--foot" seed={29} />
+        {IS_NY && <Garland className="ny-garland--foot" seed={29} />}
         <a className="ifoot__mark" href="#top" aria-label="INTENSE — на початок" data-reveal>
           <IntenseLogo intro={false} tagline />
         </a>

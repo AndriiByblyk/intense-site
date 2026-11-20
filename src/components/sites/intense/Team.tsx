@@ -1,3 +1,4 @@
+import { IS_NY } from "./edition";
 import { Garland } from "./season/Garland";
 import { Decor } from "./motion/Decor";
 import { SectionMark } from "./motion/SectionMark";
@@ -26,7 +27,7 @@ export function Team() {
       <div className="container">
         <div className="team__inner">
           <div className="team__top">
-            <Decor zone="team" />
+            {IS_NY && <Decor zone="team" />}
             <div className="section-label" data-reveal>
               <SectionMark />
               <span>Наші лікарі</span>
@@ -36,7 +37,7 @@ export function Team() {
               text="Лікарі INTENSE працюють як одна команда: точність, естетика й відповідальність — на кожному етапі вашого лікування."
             />
           </div>
-          <Garland className="ny-garland--team" seed={19} />
+          {IS_NY && <Garland className="ny-garland--team" seed={19} />}
           <Carousel name="team" centreStart={2} morph clickToFront ignore=".dcard__book" label="Лікарі INTENSE">
             {DOCTORS.map((d, i) => (
               <article

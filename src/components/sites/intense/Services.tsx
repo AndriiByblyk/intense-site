@@ -16,9 +16,11 @@ export function Services() {
   return (
     <section id="section-services" className="services">
       <SvcMorph />
-      <div className="ny-dust-wrap">
-        <GoldDust />
-      </div>
+      {IS_NY && (
+        <div className="ny-dust-wrap">
+          <GoldDust />
+        </div>
+      )}
       {/* The INTENSE letters on the stone wall, in perspective: placed so the
           whole word reads above the cards (right-hand side on desktop, full
           width on phones) */}
