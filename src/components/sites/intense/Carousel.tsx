@@ -127,7 +127,9 @@ export function Carousel({
     track.addEventListener("touchend", onTouchEnd, { passive: true });
     track.addEventListener("scroll", onScroll, { passive: true });
     track.addEventListener("scrollend", measure);
-    railRef.current?.addEventListener("animationend", measure);
+    // keep the node this effect subscribed to, so cleanup unsubscribes the same one
+    const rail = railRef.current;
+    rail?.addEventListener("animationend", measure);
     track.addEventListener("pointerdown", onUser, { passive: true });
     track.addEventListener("touchstart", onUser, { passive: true });
     track.addEventListener("wheel", onUser, { passive: true });
@@ -141,7 +143,7 @@ export function Carousel({
     return () => {
       track.removeEventListener("scroll", onScroll);
       track.removeEventListener("scrollend", measure);
-      railRef.current?.removeEventListener("animationend", measure);
+      rail?.removeEventListener("animationend", measure);
       track.removeEventListener("pointerdown", onUser);
       track.removeEventListener("touchstart", onUser);
       track.removeEventListener("wheel", onUser);

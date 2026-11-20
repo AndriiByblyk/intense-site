@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element -- the brand SVG files are shown as they are; next/image adds nothing for SVG on this internal page */
 import type { Metadata } from "next";
+import { SITE_URL } from "@/app/site";
 import { v } from "@/components/sites/intense/assetVersion";
 import { IntenseLogo } from "@/components/sites/intense/IntenseLogo";
 import { IS_NY } from "@/components/sites/intense/edition";
@@ -6,6 +8,7 @@ import { IS_NY } from "@/components/sites/intense/edition";
 export const metadata: Metadata = {
   title: "INTENSE — брендбук",
   robots: { index: false, follow: false },
+  metadataBase: new URL(SITE_URL),
 };
 
 const B = "/sites/intense/brand";
