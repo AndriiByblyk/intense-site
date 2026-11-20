@@ -2227,3 +2227,9 @@ html { scroll-behavior: smooth; }
   opacity: 0.9;
 }
 @media (max-width: 767px) { .abx__stone { inset: 0 0 0 20%; opacity: 0.75; } }
+
+/* Quick-call panel open: the hero's booking pill (same bottom band, same job)
+   steps aside, so the panel never half-covers it */
+/* (on the button, not .ihero__cta: that one's fade-up animation holds its opacity) */
+.ihero__cta .mbtn { transition: opacity 0.25s ease; }
+body:has(.qpanel.is-open) .ihero__cta .mbtn { opacity: 0; pointer-events: none; }
