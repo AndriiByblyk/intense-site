@@ -1,3 +1,5 @@
+import { SectionMark } from "./motion/SectionMark";
+import { rise } from "./motion/Rise";
 import { Carousel } from "./Carousel";
 import { SvcMorph } from "./SvcMorph";
 import { CATEGORIES, EUR_NOTE, allItems, hasEur } from "./prices";
@@ -23,13 +25,13 @@ export function Services() {
       </div>
       <div className="container">
         <div className="services-inner">
-          <div className="section-label">
-            <img decoding="async" src="/sites/intense/theme/images/mark.svg" alt="" />
+          <div className="section-label" data-reveal>
+            <SectionMark />
             <span>Напрями та вартість</span>
           </div>
           {/* desktop intro: fills the left side, the photo sits on the right */}
           <div className="svc-intro">
-            <h2 className="svc-intro__title">Сім напрямів — одна команда</h2>
+            <h2 className="svc-intro__title" data-reveal>{rise("Сім напрямів — одна команда")}</h2>
             <p className="svc-intro__lead">
               Від першої консультації до повної реабілітації. Наведіть на картку, щоб побачити ціни.
             </p>
@@ -38,7 +40,7 @@ export function Services() {
             {CATEGORIES.map((c) => {
               const n = allItems(c).length;
               return (
-                <div className="services__card svc" tabIndex={0} key={c.id} aria-label={`${c.title}: показати ціни`}>
+                <div className="services__card svc" tabIndex={0} key={c.id} aria-label={`${c.title}: показати ціни`} data-reveal>
                   {/* Colour at rest; opening the card (hover / tap) reveals the
                       B/W version as a circle from the pointer. Both are separate
                       pre-darkened files, so no live CSS filter runs. (The class
@@ -62,7 +64,15 @@ export function Services() {
                     <span className="svc__num">{c.num}</span>
                   </div>
                   <div className="svc__titlerow">
-                    <h3 className="svc__title">{c.title}</h3>
+                    <h3 className="svc__title">
+                      {rise(c.title)}
+                      {/* M05: the ≡ underline that draws when the card opens */}
+                      <span className="svc__bars" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                    </h3>
                     {/* "tap" hint, first card only (as on the reference) */}
                     {c.id === CATEGORIES[0].id && (
                       <img

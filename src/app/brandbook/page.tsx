@@ -206,6 +206,11 @@ export default function Brandbook() {
               <li>Золоте з’являється лише при дії: наведення, активна секція, таймер.</li>
               <li>Для prefers-reduced-motion анімація вимкнена, лишаються стани.</li>
             </ul>
+            <p className="bb__note">
+              <a href="/brandbook/motion" style={{ color: "var(--gold)", borderBottom: "1px solid currentColor" }}>
+                Уся система руху сайту і новорічна тема →
+              </a>
+            </p>
           </div>
         </section>
 

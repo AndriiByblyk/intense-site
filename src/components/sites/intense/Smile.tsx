@@ -1,3 +1,4 @@
+import { rise, wordCount } from "./motion/Rise";
 import { CompareReveal } from "./CompareReveal";
 import { Carousel } from "./Carousel";
 import { CASES } from "./cases";
@@ -7,13 +8,13 @@ export function Smile() {
     <section id="section-smiles-gallery" className="smile">
       <div className="container">
         <div className="smile__inner">
-          <div className="section-label section-label-smile ismile__label">
+          <div className="section-label section-label-smile ismile__label" data-reveal>
             <span>Галерея усмішок</span>
             <img decoding="async" src="/sites/intense/theme/images/arrow-grey-bottom.svg" alt="" />
           </div>
-          <h2 className="smile__title ismile__title">
-            <span>Кожна усмішка —</span>{" "}
-            <span>окремий проєкт.</span>
+          <h2 className="smile__title ismile__title" data-reveal>
+            <span>{rise("Кожна усмішка —")}</span>{" "}
+            <span>{rise("окремий проєкт.", wordCount("Кожна усмішка —"))}</span>
           </h2>
           <div className="ismile__lead">
             <p>

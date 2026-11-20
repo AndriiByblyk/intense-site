@@ -1,3 +1,4 @@
+import { SectionMark } from "./motion/SectionMark";
 import { ScrollWords } from "./ScrollWords";
 import { Carousel } from "./Carousel";
 
@@ -23,8 +24,8 @@ export function Team() {
       <div className="container">
         <div className="team__inner">
           <div className="team__top">
-            <div className="section-label">
-              <img decoding="async" src="/sites/intense/theme/images/mark.svg" alt="" />
+            <div className="section-label" data-reveal>
+              <SectionMark />
               <span>Наші лікарі</span>
             </div>
             <ScrollWords

@@ -1,3 +1,4 @@
+import { rise } from "./motion/Rise";
 import { IntenseLogo } from "./IntenseLogo";
 import { MagneticButton } from "./MagneticButton";
 import { NAV } from "./nav";
@@ -17,8 +18,8 @@ export function Footer() {
         <div className="ifoot__hero">
           <div className="ifoot__invite">
             <div className="ifoot__label">Приходьте знайомитися</div>
-            <h2 className="ifoot__title">
-              Чекаємо вас на <span className="ifoot__nb">Закарпатській, 22</span>
+            <h2 className="ifoot__title" data-reveal>
+              {rise("Чекаємо вас на")} <span className="ifoot__nb">{rise("Закарпатській, 22", 3)}</span>
             </h2>
             <p className="ifoot__lead">
               Запишіться заздалегідь — і лікар матиме час саме для вас: огляд, сканування та зрозумілий план лікування
@@ -106,7 +107,7 @@ export function Footer() {
           </a>
         </div>
 
-        <a className="ifoot__mark" href="#top" aria-label="INTENSE — на початок">
+        <a className="ifoot__mark" href="#top" aria-label="INTENSE — на початок" data-reveal>
           <IntenseLogo intro={false} tagline />
         </a>
 

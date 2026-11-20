@@ -1,5 +1,6 @@
 "use client";
 
+import { rise } from "./motion/Rise";
 import { useState } from "react";
 import { IntenseLogo } from "./IntenseLogo";
 
@@ -56,7 +57,7 @@ export function Advice() {
         <IntenseLogo intro={false} />
       </div>
       <div className="container">
-        <div className="bk__card">
+        <div className="bk__card" data-reveal>
           <div className="bk__intro">
             <div className="bk__label">
               <span className="bk__mark" aria-hidden="true">
@@ -66,7 +67,7 @@ export function Advice() {
               </span>
               Запис на прийом
             </div>
-            <h2 className="bk__title">Запланувати консультацію</h2>
+            <h2 className="bk__title">{rise("Запланувати консультацію")}</h2>
             <p className="bk__lead">
               Залиште ваші контактні дані — адміністратор INTENSE зателефонує, підбере зручний час і лікаря під ваш
               запит.
@@ -78,7 +79,7 @@ export function Advice() {
               <div className="bk__done" role="status">
                 <span className="bk__done-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-                    <path d="M5 12.5 10 17.5 19 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path pathLength={1} d="M5 12.5 10 17.5 19 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
                 <h3 className="bk__done-title">Дякуємо, заявку прийнято</h3>
