@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const DIR = "/sites/intense/media/hero";
 // The hero files keep their names between versions and are cached for 30 days,
 // so every address carries this stamp: bump it whenever the files change.
-const HERO_V = "20261116d";
+const HERO_V = "20261120a";
 const hv = (file: string) => `${DIR}/${file}?v=${HERO_V}`;
 
 type Variant = "9x16-720" | "16x9-720" | "16x9";
@@ -30,7 +30,8 @@ function pickVariant(): Variant {
   return strong && window.innerWidth >= 1600 ? "16x9" : "16x9-720";
 }
 
-// 7.2 s silent loop (facade push-in → team with a patient → microscope → facade). Rendered without sources until mounted so a phone never
+// 16.3 s silent loop cut from the clinic's vertical film IMG_6676 (phones get
+// it as shot; the landscape files are a centre 16:9 crop). Rendered without sources until mounted so a phone never
 // downloads the landscape file; paused whenever the hero is off screen (so it
 // stops costing CPU/GPU while you read the rest of the page); poster only for
 // people who ask for reduced motion.

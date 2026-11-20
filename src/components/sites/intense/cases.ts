@@ -23,4 +23,11 @@ export const CASES = [
     title: "Світла природна усмішка",
     caption: "Колір і форма в гармонії: рівний ряд і світлий відтінок, що виглядає по-справжньому.",
   },
+  // Added 20 Nov from IMG_1430 (before) / IMG_1432 (after); before is aligned
+  // onto the after photo so the slider lines up.
+  {
+    id: "05",
+    title: "Рівний ряд і світлий тон",
+    caption: "Вирівняли довжину й контури передніх зубів і висвітлили тон — лінія усмішки повторює лінію губ.",
+  },
 ] as const;
