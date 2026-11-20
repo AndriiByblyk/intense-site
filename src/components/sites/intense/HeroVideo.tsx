@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const DIR = "/sites/intense/media/hero";
 // The hero files keep their names between versions and are cached for 30 days,
 // so every address carries this stamp: bump it whenever the files change.
-const HERO_V = "20261120b";
+const HERO_V = "20261120c";
 const hv = (file: string) => `${DIR}/${file}?v=${HERO_V}`;
 
 type Variant = "9x16-720" | "16x9-720" | "16x9";
@@ -30,9 +30,10 @@ function pickVariant(): Variant {
   return strong && window.innerWidth >= 1600 ? "16x9" : "16x9-720";
 }
 
-// 16.3 s silent loop cut from the clinic's vertical film IMG_6676 (phones get
-// it as shot; on desktop the same film sits as a full-height panel on the
-// right, over a dark blurred copy of itself, clear of the headline). Rendered without sources until mounted so a phone never
+// 16.3 s silent loop: the clinic's vertical film IMG_6676. Phones get it as
+// shot; the 16:9 files are a full-frame desktop cut of the same edit (made in
+// ~/Downloads/intense/hero-6676-desktop): each shot reframed, two triptychs,
+// the end card's logo kept right of the headline. Rendered without sources until mounted so a phone never
 // downloads the landscape file; paused whenever the hero is off screen (so it
 // stops costing CPU/GPU while you read the rest of the page); poster only for
 // people who ask for reduced motion.
