@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import { SITE_URL } from "./site";
 import { IS_NY } from "@/components/sites/intense/edition";
 
 const manrope = Manrope({
@@ -7,6 +9,9 @@ const manrope = Manrope({
   variable: "--font-manrope",
   display: "swap",
 });
+
+// Every page (the 404 too) resolves share images against the site URL.
+export const metadata: Metadata = { metadataBase: new URL(SITE_URL) };
 
 // Root layout stays style-free: the pages load their own stylesheet set
 // (see the <link precedence> tags in the pages).
