@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const DIR = "/sites/intense/media/hero";
 // The hero files keep their names between versions and are cached for 30 days,
 // so every address carries this stamp: bump it whenever the files change.
-const HERO_V = "20261120d";
+const HERO_V = "20261120e";
 const hv = (file: string) => `${DIR}/${file}?v=${HERO_V}`;
 
 type Variant = "9x16-720" | "16x9-720" | "16x9";
