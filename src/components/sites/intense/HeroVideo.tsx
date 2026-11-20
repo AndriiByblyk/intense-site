@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const DIR = "/sites/intense/media/hero";
 // The hero files keep their names between versions and are cached for 30 days,
 // so every address carries this stamp: bump it whenever the files change.
-const HERO_V = "20261120c";
+const HERO_V = "20261120d";
 const hv = (file: string) => `${DIR}/${file}?v=${HERO_V}`;
 
 type Variant = "9x16-720" | "16x9-720" | "16x9";
@@ -15,19 +15,22 @@ type NavigatorExtras = Navigator & {
   connection?: { saveData?: boolean; effectiveType?: string };
 };
 
-// Pick the lightest file that still looks right:
+// Pick the lightest file that still looks sharp on this screen:
 //  - phones: portrait 720p
-//  - computers: landscape 720p (it sits under a dark overlay, so it holds up)
-//  - full 1080p only on big screens of capable machines with a normal connection
+//  - computers: 1080p whenever the screen has the pixels for it, counted in
+//    device pixels (a 1440 px MacBook window is 2880 of them; stretching a 720p
+//    file over that was the main source of blur); 720p on small, low-memory,
+//    data-saver or slow-connection setups
 function pickVariant(): Variant {
   if (window.matchMedia("(max-width: 767px)").matches) return "9x16-720";
   const n = navigator as NavigatorExtras;
-  const strong =
-    (n.hardwareConcurrency ?? 4) >= 8 &&
-    (n.deviceMemory ?? 8) >= 8 &&
+  const capable =
+    (n.hardwareConcurrency ?? 4) >= 4 &&
+    (n.deviceMemory ?? 8) >= 4 &&
     !n.connection?.saveData &&
     !/2g|3g/.test(n.connection?.effectiveType ?? "");
-  return strong && window.innerWidth >= 1600 ? "16x9" : "16x9-720";
+  const pixels = window.innerWidth * (window.devicePixelRatio || 1);
+  return capable && pixels >= 1600 ? "16x9" : "16x9-720";
 }
 
 // 16.3 s silent loop: the clinic's vertical film IMG_6676. Phones get it as
@@ -87,6 +90,10 @@ export function HeroVideo() {
     >
       {variant && !still && (
         <>
+          {/* desktop files: AV1 is the sharpest per byte; browsers that can't play it skip to VP9, then H.264 */}
+          {variant.startsWith("16x9") && (
+            <source src={hv(`hero-${variant}-av1.mp4`)} type='video/mp4; codecs="av01.0.08M.08"' />
+          )}
           <source src={hv(`hero-${variant}.webm`)} type="video/webm" />
           <source src={hv(`hero-${variant}.mp4`)} type="video/mp4" />
         </>
