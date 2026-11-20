@@ -1,3 +1,4 @@
+import { Garland } from "./season/Garland";
 import { HeroVideo } from "./HeroVideo";
 import { MagneticButton } from "./MagneticButton";
 import { GoldDust } from "./season/GoldDust";
@@ -46,6 +47,7 @@ export function Hero() {
       <div className="hero">
         <HeroVideo />
         <GoldDust />
+        <Garland className="ny-garland--hero" />
       </div>
     </>
   );

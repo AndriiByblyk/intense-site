@@ -1,5 +1,6 @@
 "use client";
 
+import { Ribbon } from "./season/Garland";
 import { rise } from "./motion/Rise";
 import { useState } from "react";
 import { IntenseLogo } from "./IntenseLogo";
@@ -58,6 +59,7 @@ export function Advice() {
       </div>
       <div className="container">
         <div className="bk__card" data-reveal>
+          <Ribbon className="ny-ribbon--bk" />
           <div className="bk__intro">
             <div className="bk__label">
               <span className="bk__mark" aria-hidden="true">

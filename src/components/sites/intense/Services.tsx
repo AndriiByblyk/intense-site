@@ -1,3 +1,4 @@
+import { GoldDust } from "./season/GoldDust";
 import { SectionMark } from "./motion/SectionMark";
 import { rise } from "./motion/Rise";
 import { Carousel } from "./Carousel";
@@ -14,6 +15,9 @@ export function Services() {
   return (
     <section id="section-services" className="services">
       <SvcMorph />
+      <div className="ny-dust-wrap">
+        <GoldDust />
+      </div>
       {/* The INTENSE letters on the stone wall, in perspective: placed so the
           whole word reads above the cards (right-hand side on desktop, full
           width on phones) */}

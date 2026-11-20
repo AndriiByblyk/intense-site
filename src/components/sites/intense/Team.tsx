@@ -1,3 +1,4 @@
+import { Garland } from "./season/Garland";
 import { Decor } from "./motion/Decor";
 import { SectionMark } from "./motion/SectionMark";
 import { ScrollWords } from "./ScrollWords";
@@ -35,6 +36,7 @@ export function Team() {
               text="Лікарі INTENSE працюють як одна команда: точність, естетика й відповідальність — на кожному етапі вашого лікування."
             />
           </div>
+          <Garland className="ny-garland--team" />
           <Carousel name="team" centreStart={2} morph clickToFront ignore=".dcard__book" label="Лікарі INTENSE">
             {DOCTORS.map((d, i) => (
               <article

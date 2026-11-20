@@ -1,3 +1,4 @@
+import { Garland } from "./season/Garland";
 import { Decor } from "./motion/Decor";
 import { rise, wordCount } from "./motion/Rise";
 import { CompareReveal } from "./CompareReveal";
@@ -32,6 +33,7 @@ export function Smile() {
               Тягніть повзунок: «до» і «після»
             </p>
           </div>
+          <Garland className="ny-garland--smile" />
           <Carousel name="smile" centreStart={1} clickToFront ignore=".cmp__handle, .smile-slide__btn" label="Галерея усмішок">
             {CASES.map((c, i) => (
               <div className="smile-card" key={c.id}>

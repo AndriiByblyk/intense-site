@@ -35,7 +35,8 @@
   clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
   animation: ny-star 4.8s ease-in-out infinite;
 }
-@keyframes ny-star { 0%, 100% { opacity: 0.55; transform: scale(0.82) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+/* no rotation: a four-point star turned 45° reads as a cross at small sizes */
+@keyframes ny-star { 0%, 100% { opacity: 0.55; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.05); } }
 @media (max-width: 767px) {
   :is(html[data-season="ny"], .ny-preview) .main-top p.ihero__season,
   :is(html[data-season="ny"], .ny-preview) .ihero__season { font-size: 11px; letter-spacing: 0.24em; gap: 10px; margin-bottom: 16px; }
@@ -128,4 +129,100 @@ html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__lights { opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .dc-pend__beads i, .dc-pend__star, .dc-dia__lights { animation: none !important; }
+}
+
+/* =====================================================================
+   Every block gets its own festive touch (all hidden off season)
+   header/hero  a string of lights under the header
+   labels       the diamond turns into a twinkling star
+   about cards  a gold bauble hangs in each card, swaying
+   services     gold dust falls over the block; a star by each card number
+   gallery      a string of lights over the before/after carousel
+   doctors      a string of lights over the carousel
+   booking      the card is tied with a gold ribbon and bow, like a gift
+   footer       a string of lights over the wordmark; gold dust falls
+   call button  a small star on the tooth
+   ===================================================================== */
+.ny-garland, .ny-bauble, .ny-ribbon, .mk-star, .ny-dust-wrap { display: none; }
+:is(html[data-season="ny"], .ny-preview) :is(.ny-garland, .ny-bauble, .ny-ribbon, .ny-dust-wrap) { display: block; }
+
+/* string of lights */
+/* --gh is the sag: the wire is stretched to it and the bulbs sit on it in % */
+.ny-garland { --gh: 40px; position: relative; height: var(--gh); pointer-events: none; }
+.ny-garland > * { pointer-events: none; }
+.ny-garland svg { position: absolute; left: 0; top: 0; width: 100%; height: var(--gh); overflow: visible; }
+.ny-garland path { fill: none; stroke: rgba(184, 164, 108, 0.6); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.ny-garland i {
+  position: absolute; width: 8px; height: 8px; margin: -1px 0 0 -4px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fff6da, #e9d397 45%, #a8915a);
+  box-shadow: 0 0 10px 2px rgba(233, 211, 151, 0.55);
+  animation: ny-bulb 3.2s ease-in-out infinite; animation-delay: calc(var(--k) * -0.37s);
+}
+.ny-garland i:nth-child(3n) { background: radial-gradient(circle at 40% 35%, #ffffff, #f3ead2 50%, #b9ad8c); box-shadow: 0 0 10px 2px rgba(255, 246, 220, 0.5); }
+@keyframes ny-bulb { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+.ny-garland--hero { position: absolute; left: 0; right: 0; top: var(--header-h); z-index: 2; }
+.ny-garland--team { margin: 0 0 22px; }
+.ny-garland--smile { margin: 10px 0 18px; }
+.ny-garland--foot { margin: 72px 0 -40px; }
+@media (max-width: 767px) {
+  .ny-garland--hero { top: 64px; }
+  .ny-garland { --gh: 20px; }
+  .ny-garland i { width: 6px; height: 6px; margin-left: -3px; }
+  .ny-garland--foot { margin-top: 48px; }
+}
+
+/* section labels: star instead of diamond */
+:is(html[data-season="ny"], .ny-preview) .mk-dia path:first-of-type,
+:is(html[data-season="ny"], .ny-preview) .mk-dia circle { display: none; }
+:is(html[data-season="ny"], .ny-preview) .mk-star {
+  display: inline; fill: var(--gold-hi); stroke: none; stroke-dasharray: none;
+  transform-box: fill-box; transform-origin: center; animation: ny-star 4.8s ease-in-out infinite;
+}
+
+/* about cards: a bauble each */
+.ny-bauble { position: absolute; top: -1px; right: 78px; z-index: 1; width: 30px; height: 96px; pointer-events: none; transform-origin: 50% 0; animation: ny-sway 5.5s ease-in-out infinite; }
+.ny-bauble--2 { height: 76px; right: 70px; animation-delay: -1.8s; }
+.ny-bauble--3 { height: 110px; right: 96px; animation-delay: -3.4s; }
+.ny-bauble__thread { position: absolute; left: 50%; top: 0; bottom: 34px; width: 1px; background: linear-gradient(rgba(184, 164, 108, 0.2), rgba(184, 164, 108, 0.8)); }
+.ny-bauble__cap { position: absolute; left: 50%; bottom: 28px; width: 8px; height: 6px; margin-left: -4px; border-radius: 1px; background: linear-gradient(90deg, #7d6c3f, #e3cf96, #8f7c48); }
+.ny-bauble__ball {
+  position: absolute; left: 0; bottom: 0; width: 30px; height: 30px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #fff3cf, #d8c58e 32%, #8a7640 78%, #5c4d24);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 22px rgba(216, 197, 142, 0.25);
+}
+@keyframes ny-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@media (max-width: 767px) { .ny-bauble { right: 64px; transform: scale(0.85); } }
+
+/* services and footer: falling gold dust over the whole block */
+html[data-season="ny"] .services { position: relative; }
+.ny-dust-wrap { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+:is(html[data-season="ny"], .ny-preview) .svc__num::before {
+  content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 7px; vertical-align: -0.5px; background: var(--gold-hi);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+}
+
+/* booking: a gold sash across the top-right corner with a bow */
+.ny-ribbon { position: absolute; inset: 0; z-index: 2; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.ny-ribbon__v, .ny-ribbon__h {
+  position: absolute; display: block; width: 220px; height: 16px; top: 46px; right: -52px; transform: rotate(45deg);
+  background: linear-gradient(180deg, #e8d49c, #b8a46c 45%, #8f7c48);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.ny-ribbon__h { transform: rotate(-45deg); top: 46px; right: -52px; opacity: 0; }
+.ny-ribbon__bow { position: absolute; top: 34px; right: 25px; width: 64px; height: 44px; overflow: visible; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); }
+.ny-ribbon__bow path:not(:nth-child(3)) { fill: #c9b47a; stroke: #8f7c48; stroke-width: 1; }
+.ny-ribbon__bow path:nth-child(3) { fill: none; stroke: #b8a46c; stroke-width: 4; stroke-linecap: round; }
+.ny-ribbon__bow circle { fill: #e3cf96; stroke: #8f7c48; stroke-width: 1; }
+@media (max-width: 767px) { .ny-ribbon__v { top: 30px; right: -64px; width: 180px; height: 13px; } .ny-ribbon__bow { top: 18px; right: 10px; transform: scale(0.8); } }
+
+/* call button: a star on the tooth */
+html[data-season="ny"] .qcall::after {
+  content: ""; display: block; position: absolute; top: -4px; right: -2px; width: 14px; height: 14px; border: 0; border-radius: 0; inset: -4px -2px auto auto;
+  background: var(--gold-hi); clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  animation: ny-star 4.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ny-garland i, .ny-bauble, .mk-star, html[data-season="ny"] .qcall::after { animation: none !important; }
+  .ny-garland i { opacity: 0.9; }
 }
