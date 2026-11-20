@@ -1,3 +1,5 @@
+import { IS_NY } from "../edition";
+
 // Fills for the dark empty grounds, drawn from the clinic's interior
 // (brandbook: /brandbook/motion#decor). Purely decorative: aria-hidden, behind
 // the content (z-index -1 inside an isolated host), styles in decor.css; the
@@ -22,6 +24,7 @@ const ZONES: Record<"about" | "team" | "smile", { pendants?: Pendant[]; stone?: 
 const BEADS = [0.2, 0.36, 0.52, 0.68, 0.84];
 
 export function Decor({ zone }: { zone: keyof typeof ZONES }) {
+  if (!IS_NY) return null;
   const z = ZONES[zone];
   return (
     <div className={`dc dc--${zone}`} data-reveal aria-hidden="true">

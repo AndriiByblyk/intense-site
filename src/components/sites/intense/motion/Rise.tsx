@@ -1,3 +1,5 @@
+import { IS_NY } from "../edition";
+
 // M03 · "Rising titles": a heading's words rise out of a mask when the heading
 // (or the [data-reveal] element around it) enters the screen. Split on the
 // server, so the text is complete in the HTML and for screen readers; the
@@ -8,6 +10,11 @@
 // `start` continues the word count across several calls (a title built from
 // two spans keeps one stagger).
 export function rise(text: string, start = 0) {
+  return IS_NY ? riseWords(text, start) : text;
+}
+
+/** Always split (the booking card uses it on both sites). */
+export function riseWords(text: string, start = 0) {
   const words = text.split(" ");
   return words.flatMap((w, i) => {
     const el = (

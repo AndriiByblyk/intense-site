@@ -1,3 +1,5 @@
+import { IS_NY } from "../edition";
+
 // New Year · baubles for the bento cards and the gift ribbon for the booking
 // card. The glass balls are drawn once in SeasonDefs and used here.
 type Ball = { k: "gold" | "black" | "champ"; s: number; len: number; x: number };
@@ -19,6 +21,7 @@ const CLUSTERS: Ball[][] = [
 ];
 
 export function Baubles({ card }: { card: number }) {
+  if (!IS_NY) return null;
   const balls = CLUSTERS[card] ?? [];
   return (
     <span className="ny-baubles" aria-hidden="true">
@@ -40,6 +43,7 @@ export function Baubles({ card }: { card: number }) {
 
 // A gold sash across the top-right corner with a bow: the card as a gift.
 export function Ribbon({ className = "" }: { className?: string }) {
+  if (!IS_NY) return null;
   return (
     <span className={`ny-ribbon ${className}`} aria-hidden="true">
       <i className="ny-ribbon__v" />

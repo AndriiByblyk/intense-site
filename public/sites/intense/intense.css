@@ -2216,3 +2216,14 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { .bk__done { animation: none; } .bk__submit, .bk__submit-arrow { transition: none; } }
 .bk__field--select::after { top: 54px; bottom: auto; } @media (max-width: 767px) { .bk__field--select::after { top: 52px; } }
 .bk__intro { justify-content: center; }
+
+/* About card 03 (online consultation): the reception's black stone fills the
+   card's empty right half (image cut from the clinic's 4K footage) */
+.abx__stone {
+  position: absolute; inset: 0 0 0 38%; z-index: -1; pointer-events: none;
+  background: url("clinic/stone.webp") 70% 30% / cover;
+  -webkit-mask: linear-gradient(to right, transparent, #000 48%);
+  mask: linear-gradient(to right, transparent, #000 48%);
+  opacity: 0.9;
+}
+@media (max-width: 767px) { .abx__stone { inset: 0 0 0 20%; opacity: 0.75; } }

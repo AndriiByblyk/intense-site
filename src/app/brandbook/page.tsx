@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { v } from "@/components/sites/intense/assetVersion";
 import { IntenseLogo } from "@/components/sites/intense/IntenseLogo";
+import { IS_NY } from "@/components/sites/intense/edition";
 
 export const metadata: Metadata = {
   title: "INTENSE — брендбук",
@@ -206,11 +207,13 @@ export default function Brandbook() {
               <li>Золоте з’являється лише при дії: наведення, активна секція, таймер.</li>
               <li>Для prefers-reduced-motion анімація вимкнена, лишаються стани.</li>
             </ul>
-            <p className="bb__note">
-              <a href="/brandbook/motion" style={{ color: "var(--gold)", borderBottom: "1px solid currentColor" }}>
-                Уся система руху сайту і новорічна тема →
-              </a>
-            </p>
+            {IS_NY && (
+              <p className="bb__note">
+                <a href="/brandbook/motion" style={{ color: "var(--gold)", borderBottom: "1px solid currentColor" }}>
+                  Уся система руху сайту і новорічна тема →
+                </a>
+              </p>
+            )}
           </div>
         </section>
 

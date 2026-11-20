@@ -1,3 +1,4 @@
+import { IS_NY } from "./edition";
 import { GoldDust } from "./season/GoldDust";
 import { SectionMark } from "./motion/SectionMark";
 import { rise } from "./motion/Rise";
@@ -70,12 +71,14 @@ export function Services() {
                   <div className="svc__titlerow">
                     <h3 className="svc__title">
                       {rise(c.title)}
-                      {/* M05: the ≡ underline that draws when the card opens */}
-                      <span className="svc__bars" aria-hidden="true">
-                        <i />
-                        <i />
-                        <i />
-                      </span>
+                      {/* M05 (New Year edition): the ≡ underline that draws when the card opens */}
+                      {IS_NY && (
+                        <span className="svc__bars" aria-hidden="true">
+                          <i />
+                          <i />
+                          <i />
+                        </span>
+                      )}
                     </h3>
                     {/* "tap" hint, first card only (as on the reference) */}
                     {c.id === CATEGORIES[0].id && (

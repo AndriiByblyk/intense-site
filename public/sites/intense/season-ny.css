@@ -1,10 +1,10 @@
 /* =====================================================================
    INTENSE — New Year season  ·  brandbook: /brandbook/motion#ny
    ---------------------------------------------------------------------
-   A temporary skin, on only while <html data-season="ny"> — set by the
-   head script in app/layout.tsx from 15 December to 14 January (Kyiv
-   calendar), or by ?season=ny / ?season=off for previews. Off season this
-   file changes nothing. The brandbook previews it inside .ny-preview.
+   The New Year edition's skin (a separate Vercel project, intense-site-ny,
+   built with NEXT_PUBLIC_EDITION=ny): <html data-season="ny"> is set at build
+   time and this file is loaded only there. The brandbook previews it inside
+   .ny-preview.
 
    Not tinsel: the same black and gold, with light in it.
    N1  gold dust falling slowly over the hero film     (GoldDust.tsx)

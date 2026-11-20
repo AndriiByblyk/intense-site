@@ -2,7 +2,8 @@
    INTENSE — fills for empty dark grounds (Decor.tsx) · brandbook:
    /brandbook/motion#decor. All of it sits behind the content (z-index -1
    inside an isolated host) and never takes clicks.
-   D1 pendants · D2 stone · D3 diamond · D4 glow (+ stone in about card 03)
+   D1 pendants · D2 stone · D3 diamond · D4 glow. New Year edition only;
+   the stone in about card 03 is in intense.css (both sites).
    Arrival follows motion.css: drawn lines, ease-out, once, hidden states
    only under html.mo-ready. New Year variants: season-ny.css.
    ===================================================================== */
@@ -25,14 +26,6 @@
   mask: radial-gradient(62% 62% at 42% 50%, #000 0 30%, transparent 78%);
   transition: opacity 1.8s var(--ease-out);
 }
-.abx__stone {
-  position: absolute; inset: 0 0 0 38%; z-index: -1; pointer-events: none;
-  background: url("clinic/stone.webp") 70% 30% / cover;
-  -webkit-mask: linear-gradient(to right, transparent, #000 48%);
-  mask: linear-gradient(to right, transparent, #000 48%);
-  opacity: 0.9;
-}
-
 /* D1 · pendants: cord, gold tube, light */
 .dc-pend { position: absolute; top: 0; left: var(--x); width: 1px; height: var(--len); }
 .dc-pend::before {
@@ -83,9 +76,6 @@ html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__dot { opacity: 0; transform:
   .dc-pend__lamp { height: 18px; }
   .dc-pend__light { width: 22px; height: 22px; bottom: -11px; }
   .dc-glow { width: 220px; }
-}
-@media (max-width: 767px) {
-  .abx__stone { inset: 0 0 0 20%; opacity: 0.75; }
 }
 
 @media (prefers-reduced-motion: reduce) {

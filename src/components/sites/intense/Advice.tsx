@@ -1,7 +1,7 @@
 "use client";
 
 import { Ribbon } from "./season/Ornaments";
-import { rise } from "./motion/Rise";
+import { riseWords } from "./motion/Rise";
 import { useState } from "react";
 import { IntenseLogo } from "./IntenseLogo";
 
@@ -69,7 +69,7 @@ export function Advice() {
               </span>
               Запис на прийом
             </div>
-            <h2 className="bk__title">{rise("Запланувати консультацію")}</h2>
+            <h2 className="bk__title">{riseWords("Запланувати консультацію")}</h2>
             <p className="bk__lead">
               Залиште ваші контактні дані — адміністратор INTENSE зателефонує, підбере зручний час і лікаря під ваш
               запит.

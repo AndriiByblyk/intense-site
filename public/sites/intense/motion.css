@@ -13,24 +13,11 @@
    M06  booking — card rises, focus line draws, button sheen, error nudge, ✓
    M07  footer wordmark — builds itself when you reach it
 
-   Curves and tokens extend intense.css (--ease-out, --ease-io): no
-   parallel system. Hidden "before" states apply only under html.mo-ready
-   (set by MotionObserver), so without JS or with reduced motion nothing
-   is ever hidden.
+   New Year edition only. Tokens, M03 (word rise) and M06 (booking) are in
+   motion-core.css, which both sites load. Curves extend intense.css
+   (--ease-out, --ease-io). Hidden "before" states apply only under
+   html.mo-ready (set by MotionObserver).
    ===================================================================== */
-:root {
-  --t-press: 140ms;   /* press feedback */
-  --t-ui: 240ms;      /* state changes: focus line, card underline */
-  --t-reveal: 900ms;  /* things arriving on screen */
-  --t-light: 1300ms;  /* light passing over gold or type */
-  --stagger: 45ms;    /* between words */
-  --rise: 24px;       /* how far a block travels as it arrives */
-  --drift: 32px;      /* ≡ strip travel across one block */
-}
-@media (max-width: 767px) {
-  :root { --t-reveal: 750ms; --rise: 16px; --drift: 18px; }
-}
-
 /* ---------------------------------------------------------------------
    M01 · Hero headline: after the words have risen, a band of warm light
    passes along them once, word after word — the gold letters on the stone
@@ -67,15 +54,6 @@ html.mo-ready [data-reveal]:not(.is-in) .mk-dia path { stroke-dashoffset: 1; }
 html.mo-ready [data-reveal]:not(.is-in) .mk-dia circle { transform: scale(0.4); opacity: 0; }
 html.mo-ready .section-label[data-reveal]:not(.is-in) > span { clip-path: inset(0 100% 0 0); }
 html.mo-ready .section-label-smile[data-reveal]:not(.is-in) > img { transform: translateY(-6px); opacity: 0; }
-
-/* ---------------------------------------------------------------------
-   M03 · Block titles: each word rises out of its own mask, 45 ms apart —
-   the hero's gesture, smaller and slower, so every chapter opens the same
-   way. Markup from rise() in motion/Rise.tsx.
-   --------------------------------------------------------------------- */
-.rw { display: inline-block; overflow: hidden; vertical-align: top; padding: 0.08em 0 0.12em; margin: -0.08em 0 -0.12em; }
-.rw > span { display: inline-block; transition: transform var(--t-reveal) var(--ease-out); transition-delay: calc(var(--i, 0) * var(--stagger) + var(--d, 0ms)); }
-html.mo-ready [data-reveal]:not(.is-in) .rw > span { transform: translateY(112%); }
 
 /* ---------------------------------------------------------------------
    M04 · ≡ strips between blocks: as a block passes through the screen its
@@ -120,66 +98,6 @@ html.mo-ready [data-reveal]:not(.is-in) .rw > span { transform: translateY(112%)
 }
 
 /* ---------------------------------------------------------------------
-   M06 · Booking.
-   The card rises; its ≡ label draws; the title's words rise; the fields
-   follow 60 ms apart. Focus: a gold line draws under the field from the
-   left (and retracts on blur — a transition, so it can be interrupted).
-   The button: one pass of light when the card arrives, and on hover.
-   Errors: a 3 px nudge, once. Sent: the ✓ draws itself.
-   --------------------------------------------------------------------- */
-.bk__card { transition: opacity var(--t-reveal) var(--ease-out), transform var(--t-reveal) var(--ease-out); }
-html.mo-ready .bk__card[data-reveal]:not(.is-in) { opacity: 0; transform: translateY(var(--rise)); }
-
-.bk__mark i { transform-origin: left; transition: transform 0.6s var(--ease-out) 0.25s; }
-.bk__mark i:nth-child(2) { transition-delay: 0.31s; }
-.bk__mark i:nth-child(3) { transition-delay: 0.37s; }
-html.mo-ready .bk__card[data-reveal]:not(.is-in) .bk__mark i { transform: scaleX(0); }
-
-.bk__card .rw > span { transition-delay: calc(0.2s + var(--i, 0) * var(--stagger)); }
-
-/* arrival as a one-off animation with backwards fill: after it ends nothing
-   is held, so press feedback and the error nudge stay instant */
-html.mo-ready .bk__card[data-reveal]:not(.is-in) :is(.bk__lead, .bk__field, .bk__submit) { opacity: 0; }
-.bk__card.is-in :is(.bk__lead, .bk__field, .bk__submit) { animation: m-arrive 0.7s var(--ease-out) backwards; }
-.bk__card.is-in .bk__lead { animation-delay: 0.35s; }
-.bk__card.is-in .bk__form > :nth-child(1) { animation-delay: 0.3s; }
-.bk__card.is-in .bk__form > :nth-child(2) { animation-delay: 0.36s; }
-.bk__card.is-in .bk__form > :nth-child(3) { animation-delay: 0.42s; }
-.bk__card.is-in .bk__form > :nth-child(4) { animation-delay: 0.48s; }
-.bk__card.is-in .bk__form > :nth-child(5) { animation-delay: 0.54s; }
-@keyframes m-arrive { from { opacity: 0; transform: translateY(12px); } }
-
-.bk__field::before {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
-  background: var(--gold); transform: scaleX(0); transform-origin: left;
-  transition: transform var(--t-ui) var(--ease-out), background-color var(--t-ui);
-}
-.bk__field:focus-within { border-color: rgba(241, 239, 233, 0.16); }
-.bk__field:focus-within::before { transform: none; }
-.bk__field.is-error, .bk__card.is-in .bk__field.is-error { border-color: rgba(241, 239, 233, 0.16); animation: m-nudge 320ms var(--ease-out); }
-.bk__field.is-error::before { transform: none; background: #d98a7a; }
-@keyframes m-nudge { 25% { transform: translateX(-3px); } 55% { transform: translateX(2px); } 80% { transform: translateX(-1px); } }
-
-.bk__submit { position: relative; overflow: hidden; isolation: isolate; }
-.bk__submit > span { position: relative; z-index: 1; }
-.bk__submit::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(105deg, transparent 30%, rgba(255, 252, 240, 0.5) 50%, transparent 70%);
-  transform: translateX(-110%);
-}
-.bk__card.is-in .bk__submit::after { animation: m-sheen 1.1s var(--ease-io) 1.2s both; }
-@media (hover: hover) and (pointer: fine) {
-  .bk__submit:hover::after { animation: m-sheen 0.9s var(--ease-io) both; }
-}
-.bk__submit:active { transform: scale(0.97); transition-duration: var(--t-press); }
-@keyframes m-sheen { from { transform: translateX(-110%); } to { transform: translateX(110%); } }
-
-.bk__done-icon { animation: m-pop 0.5s var(--ease-out) both; }
-.bk__done-icon path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: m-draw 0.6s var(--ease-io) 0.25s forwards; }
-@keyframes m-pop { from { transform: scale(0.9); opacity: 0; } }
-@keyframes m-draw { to { stroke-dashoffset: 0; } }
-
-/* ---------------------------------------------------------------------
    M07 · Footer wordmark: the big INT≡NS≡ builds itself (letters rise, bars
    draw) when you reach it, instead of at page load where nobody sees it.
    Same keyframes as the header logo.
@@ -194,13 +112,9 @@ html.mo-ready .ifoot__mark[data-reveal] .ilogo__tag { opacity: 0; }
 .ifoot__mark.is-in .ilogo__tag { animation: fade-up 0.9s var(--ease-out) 0.7s both; }
 
 /* ---------------------------------------------------------------------
-   Reduced motion: no travel, no light passes, no nudge. States still
-   change (the focus line and the open-card underline appear at once).
-   MotionObserver never sets mo-ready, so nothing starts hidden.
+   Reduced motion: no travel, no light passes. States still change.
    --------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .ihero__w > span { -webkit-text-fill-color: currentColor; background: none; }
-  .bk__submit::after, .bk__field.is-error, .bk__done-icon, .bk__done-icon path { animation: none !important; }
-  .bk__done-icon path { stroke-dashoffset: 0; }
-  .bk__field::before, .svc__bars i, .mk-dia, .mk-dia path, .mk-dia circle { transition: none; }
+  .svc__bars i, .mk-dia, .mk-dia path, .mk-dia circle { transition: none; }
 }

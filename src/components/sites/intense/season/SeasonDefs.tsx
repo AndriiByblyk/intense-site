@@ -1,7 +1,10 @@
+import { IS_NY } from "../edition";
+
 // New Year · shared SVG drawings, put on the page once (their gradient ids
 // must be unique): the glass bulb of the garlands and three glass baubles.
 // Everything else references them with <use href="#…">.
 export function SeasonDefs() {
+  if (!IS_NY) return null;
   return (
     <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true" focusable="false">
       <defs>

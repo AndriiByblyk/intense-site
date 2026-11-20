@@ -1,5 +1,6 @@
 "use client";
 
+import { IS_NY } from "../edition";
 import { useEffect, useRef } from "react";
 
 // N1 · New Year: slow gold dust over the hero film. A few dozen specks fall
@@ -11,6 +12,10 @@ import { useEffect, useRef } from "react";
 type Speck = { x0: number; y: number; r: number; vy: number; sway: number; f: number; ph: number; tw: number; a: number; c: 0 | 1; soft: boolean };
 
 export function GoldDust({ force = false }: { force?: boolean }) {
+  return IS_NY || force ? <Dust force={force} /> : null;
+}
+
+function Dust({ force }: { force: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

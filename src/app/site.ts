@@ -3,8 +3,10 @@
 // connected, so canonical links, the sitemap and share cards point there.
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://intense-site-silk.vercel.app").replace(/\/$/, "");
 
-// Only the production deployment may be indexed; previews and local builds stay out of search.
-export const INDEXABLE = process.env.VERCEL_ENV === "production";
+// Only the production deployment of the clinic's site may be indexed; previews,
+// local builds and the New Year edition (a copy of the same content on its own
+// project) stay out of search. Its canonical links still point to SITE_URL.
+export const INDEXABLE = process.env.VERCEL_ENV === "production" && process.env.NEXT_PUBLIC_EDITION !== "ny";
 
 export const SITE = {
   name: "INTENSE Dental Clinic",

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { IS_NY } from "@/components/sites/intense/edition";
 import { v } from "@/components/sites/intense/assetVersion";
 import { IntenseLogo } from "@/components/sites/intense/IntenseLogo";
 import { SectionMark } from "@/components/sites/intense/motion/SectionMark";
@@ -75,11 +77,14 @@ function Effect({ id, code, title, what, demo, specs }: { id: string; code: stri
 const HERO_WORDS = "Естетична і функціональна стоматологія".split(" ");
 
 export default function MotionBrandbook() {
+  // documents the New Year edition; the clinic's site has no such page
+  if (!IS_NY) notFound();
   return (
     <>
       <link rel="stylesheet" href={v("/sites/intense/theme/css/reset.css")} precedence="default" />
       <link rel="stylesheet" href={v("/sites/intense/intense.css")} precedence="default" />
       <link rel="stylesheet" href={v("/sites/intense/brandbook.css")} precedence="high" />
+      <link rel="stylesheet" href={v("/sites/intense/motion-core.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/motion.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/decor.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/season-ny.css")} precedence="high" />
@@ -394,13 +399,11 @@ export default function MotionBrandbook() {
               <div><b>N6</b><h4>Тепла картка запису</h4><p>У картці запису з’являється друге золоте світіння в протилежному куті.</p></div>
             </div>
 
-            <h3 className="bb__h3 bb__mt">Коли вмикається</h3>
+            <h3 className="bb__h3 bb__mt">Де живе</h3>
             <ul className="bb__list">
-              <li>Сама: з 15 грудня до 14 січня включно, за календарем відвідувача. Після 14 січня сайт сам повертається до звичайного вигляду.</li>
-              {/* plain <a>, not <Link>: the season is read by the head script, which runs only on a full page load */}
-              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-              <li>Переглянути зараз: <a className="bbm-link" href="/?season=ny">відкрити сайт у святковому стилі</a> · <a className="bbm-link" href="/?season=off">вимкнути для себе</a> (діє до закриття вкладки).</li>
-              <li>«Менше руху» і режим економії трафіку: іскри стоять на місці, зірка й гірлянда не мерехтять.</li>
+              <li>Окремий сайт на Vercel (проєкт intense-site-ny): святковий стиль і весь рух M01–M07 увімкнені завжди. Сайт клініки лишається звичайним — з нього взято лише камінь у картці «Онлайн-консультація» і рух картки запису (M06).</li>
+              <li>Святкова копія не індексується пошуковиками; канонічні посилання ведуть на сайт клініки.</li>
+              <li>«Менше руху» і режим економії трафіку: іскри стоять на місці, зірки й гірлянди не мерехтять.</li>
             </ul>
           </div>
         </section>

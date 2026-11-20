@@ -1,5 +1,6 @@
 "use client";
 
+import { IS_NY } from "../edition";
 import { useEffect, useRef, useState } from "react";
 
 // New Year · a real string of lights, edge to edge. Built in pixels for the
@@ -65,7 +66,11 @@ function build(w: number, seed: number): Geo {
   return { w, h: Math.ceil(maxSag + 2 + 22 * s + 14), wire, hi, bulbs, s };
 }
 
-export function Garland({ className = "", seed = 7 }: { className?: string; seed?: number }) {
+export function Garland(props: { className?: string; seed?: number }) {
+  return IS_NY ? <StringOfLights {...props} /> : null;
+}
+
+function StringOfLights({ className = "", seed = 7 }: { className?: string; seed?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [geo, setGeo] = useState<Geo | null>(null);
 

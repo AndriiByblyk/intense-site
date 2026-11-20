@@ -1,3 +1,4 @@
+import { IS_NY } from "./edition";
 import { Garland } from "./season/Garland";
 import { HeroVideo } from "./HeroVideo";
 import { MagneticButton } from "./MagneticButton";
@@ -14,11 +15,12 @@ export function Hero() {
           <div className="main__inner">
             <div className="main-top">
               <div className="left ihero__left">
-                {/* N2 · shown only in the New Year season (season-ny.css) */}
-                <p className="ihero__season">
-                  <span className="ny-star" aria-hidden="true" />
-                  З Різдвом і Новим роком
-                </p>
+                {IS_NY && (
+                  <p className="ihero__season">
+                    <span className="ny-star" aria-hidden="true" />
+                    З Різдвом і Новим роком
+                  </p>
+                )}
                 <h1 className="ihero__title">
                   {HEADLINE.map((w, i) => (
                     <span
