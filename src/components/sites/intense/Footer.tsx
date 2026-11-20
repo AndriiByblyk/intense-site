@@ -112,7 +112,7 @@ export function Footer() {
           </a>
         </div>
 
-        <Garland className="ny-garland--foot" />
+        <Garland className="ny-garland--foot" seed={29} />
         <a className="ifoot__mark" href="#top" aria-label="INTENSE — на початок" data-reveal>
           <IntenseLogo intro={false} tagline />
         </a>

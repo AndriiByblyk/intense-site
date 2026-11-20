@@ -1,6 +1,6 @@
 "use client";
 
-import { Ribbon } from "./season/Garland";
+import { Ribbon } from "./season/Ornaments";
 import { rise } from "./motion/Rise";
 import { useState } from "react";
 import { IntenseLogo } from "./IntenseLogo";

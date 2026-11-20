@@ -47,7 +47,7 @@ export function Hero() {
       <div className="hero">
         <HeroVideo />
         <GoldDust />
-        <Garland className="ny-garland--hero" />
+        <Garland className="ny-garland--hero" seed={3} />
       </div>
     </>
   );

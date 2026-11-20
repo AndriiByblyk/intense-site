@@ -5,6 +5,7 @@ import { SectionMark } from "@/components/sites/intense/motion/SectionMark";
 import { rise } from "@/components/sites/intense/motion/Rise";
 import { GoldDust } from "@/components/sites/intense/season/GoldDust";
 import { Decor } from "@/components/sites/intense/motion/Decor";
+import { SeasonDefs } from "@/components/sites/intense/season/SeasonDefs";
 import { BookingDemo, CardDemo, Replay } from "./demos";
 
 export const metadata: Metadata = {
@@ -84,6 +85,7 @@ export default function MotionBrandbook() {
       <link rel="stylesheet" href={v("/sites/intense/season-ny.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/brandbook-motion.css")} precedence="high" />
 
+      <SeasonDefs />
       <main className="bb bbm">
         <header className="bb__cover bbm-cover">
           <div className="bb__wrap">

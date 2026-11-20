@@ -36,7 +36,7 @@ export function Team() {
               text="Лікарі INTENSE працюють як одна команда: точність, естетика й відповідальність — на кожному етапі вашого лікування."
             />
           </div>
-          <Garland className="ny-garland--team" />
+          <Garland className="ny-garland--team" seed={19} />
           <Carousel name="team" centreStart={2} morph clickToFront ignore=".dcard__book" label="Лікарі INTENSE">
             {DOCTORS.map((d, i) => (
               <article

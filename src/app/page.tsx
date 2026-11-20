@@ -13,6 +13,7 @@ import { Overlays } from "@/components/sites/intense/Overlays";
 import { CallButton } from "@/components/sites/intense/CallButton";
 import { SiteScripts } from "@/components/sites/intense/SiteScripts";
 import { MotionObserver } from "@/components/sites/intense/motion/MotionObserver";
+import { SeasonDefs } from "@/components/sites/intense/season/SeasonDefs";
 
 import { ASSET_V, v } from "@/components/sites/intense/assetVersion";
 
@@ -85,6 +86,7 @@ export default function Home() {
       <link rel="stylesheet" href={v("/sites/intense/motion.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/decor.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/season-ny.css")} precedence="high" />
+      <SeasonDefs />
       <Header />
       <main>
         <Hero />

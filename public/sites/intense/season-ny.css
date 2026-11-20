@@ -143,32 +143,33 @@ html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__lights { opacity: 0; }
    footer       a string of lights over the wordmark; gold dust falls
    call button  a small star on the tooth
    ===================================================================== */
-.ny-garland, .ny-bauble, .ny-ribbon, .mk-star, .ny-dust-wrap { display: none; }
-:is(html[data-season="ny"], .ny-preview) :is(.ny-garland, .ny-bauble, .ny-ribbon, .ny-dust-wrap) { display: block; }
+.ny-garland, .ny-baubles, .ny-ribbon, .mk-star, .ny-dust-wrap { display: none; }
+:is(html[data-season="ny"], .ny-preview) :is(.ny-garland, .ny-baubles, .ny-ribbon, .ny-dust-wrap) { display: block; }
 
-/* string of lights */
-/* --gh is the sag: the wire is stretched to it and the bulbs sit on it in % */
-.ny-garland { --gh: 40px; position: relative; height: var(--gh); pointer-events: none; }
-.ny-garland > * { pointer-events: none; }
-.ny-garland svg { position: absolute; left: 0; top: 0; width: 100%; height: var(--gh); overflow: visible; }
-.ny-garland path { fill: none; stroke: rgba(184, 164, 108, 0.6); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.ny-garland i {
-  position: absolute; width: 8px; height: 8px; margin: -1px 0 0 -4px; border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #fff6da, #e9d397 45%, #a8915a);
-  box-shadow: 0 0 10px 2px rgba(233, 211, 151, 0.55);
-  animation: ny-bulb 3.2s ease-in-out infinite; animation-delay: calc(var(--k) * -0.37s);
+/* string of lights (Garland.tsx): wire, highlight, bulbs from SeasonDefs, halos */
+.ny-garland { position: relative; height: 60px; pointer-events: none; }
+.ny-garland svg { position: absolute; left: 0; top: 0; z-index: 1; overflow: visible; filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.55)); }
+.ny-garland__wire { fill: none; stroke: #16130d; stroke-width: 1.8; stroke-linecap: round; }
+.ny-garland__hi { fill: none; stroke: rgba(184, 164, 108, 0.45); stroke-width: 0.7; stroke-linecap: round; }
+.ny-glow {
+  position: absolute; width: 54px; height: 54px; margin: -27px 0 0 -27px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 224, 150, 0.6), rgba(255, 196, 100, 0.16) 48%, rgba(255, 196, 100, 0));
+  mix-blend-mode: screen; animation: ny-glow var(--tw, 3s) ease-in-out var(--dl, 0s) infinite;
 }
-.ny-garland i:nth-child(3n) { background: radial-gradient(circle at 40% 35%, #ffffff, #f3ead2 50%, #b9ad8c); box-shadow: 0 0 10px 2px rgba(255, 246, 220, 0.5); }
-@keyframes ny-bulb { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+.ny-glow--amber { background: radial-gradient(closest-side, rgba(255, 196, 110, 0.62), rgba(240, 160, 60, 0.18) 48%, rgba(240, 160, 60, 0)); }
+.ny-glow--cream { background: radial-gradient(closest-side, rgba(255, 250, 230, 0.6), rgba(255, 238, 200, 0.14) 48%, rgba(255, 238, 200, 0)); }
+@keyframes ny-glow { 0%, 100% { opacity: 0.5; } 45% { opacity: 1; } 60% { opacity: 0.85; } }
+/* edge to edge, whatever container it sits in */
+html[data-season="ny"] { overflow-x: clip; }
+.ny-garland--team, .ny-garland--smile, .ny-garland--foot { width: 100vw; margin-left: calc(50% - 50vw); }
 .ny-garland--hero { position: absolute; left: 0; right: 0; top: var(--header-h); z-index: 2; }
-.ny-garland--team { margin: 0 0 22px; }
-.ny-garland--smile { margin: 10px 0 18px; }
-.ny-garland--foot { margin: 72px 0 -40px; }
+.ny-garland--team { margin-bottom: 16px; }
+.ny-garland--smile { margin-top: 6px; margin-bottom: 14px; }
+.ny-garland--foot { margin-top: 64px; margin-bottom: -36px; }
 @media (max-width: 767px) {
   .ny-garland--hero { top: 64px; }
-  .ny-garland { --gh: 20px; }
-  .ny-garland i { width: 6px; height: 6px; margin-left: -3px; }
-  .ny-garland--foot { margin-top: 48px; }
+  .ny-glow { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+  .ny-garland--foot { margin-top: 44px; }
 }
 
 /* section labels: star instead of diamond */
@@ -179,19 +180,22 @@ html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__lights { opacity: 0; }
   transform-box: fill-box; transform-origin: center; animation: ny-star 4.8s ease-in-out infinite;
 }
 
-/* about cards: a bauble each */
-.ny-bauble { position: absolute; top: -1px; right: 78px; z-index: 1; width: 30px; height: 96px; pointer-events: none; transform-origin: 50% 0; animation: ny-sway 5.5s ease-in-out infinite; }
-.ny-bauble--2 { height: 76px; right: 70px; animation-delay: -1.8s; }
-.ny-bauble--3 { height: 110px; right: 96px; animation-delay: -3.4s; }
-.ny-bauble__thread { position: absolute; left: 50%; top: 0; bottom: 34px; width: 1px; background: linear-gradient(rgba(184, 164, 108, 0.2), rgba(184, 164, 108, 0.8)); }
-.ny-bauble__cap { position: absolute; left: 50%; bottom: 28px; width: 8px; height: 6px; margin-left: -4px; border-radius: 1px; background: linear-gradient(90deg, #7d6c3f, #e3cf96, #8f7c48); }
-.ny-bauble__ball {
-  position: absolute; left: 0; bottom: 0; width: 30px; height: 30px; border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, #fff3cf, #d8c58e 32%, #8a7640 78%, #5c4d24);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 22px rgba(216, 197, 142, 0.25);
+/* about cards: glass baubles (Ornaments.tsx + SeasonDefs), a cluster per card */
+.ny-baubles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.ny-bauble {
+  --ks: 1; --kl: 1; --kx: 1; /* size, thread and offset multipliers (phones) */
+  position: absolute; top: 0; right: calc(var(--x) * var(--kx)); width: calc(var(--s) * var(--ks)); height: calc(var(--len) * var(--kl) + var(--s) * var(--ks) * 1.32);
+  transform-origin: 50% 0; animation: ny-sway calc(5s + var(--n) * 0.7s) ease-in-out calc(var(--n) * -1.3s) infinite;
 }
-@keyframes ny-sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-@media (max-width: 767px) { .ny-bauble { right: 64px; transform: scale(0.85); } }
+.ny-bauble__thread { position: absolute; left: 50%; top: 0; width: 1px; height: calc(var(--len) * var(--kl) + var(--s) * var(--ks) * 0.12); margin-left: -0.5px; background: linear-gradient(rgba(184, 164, 108, 0.15), rgba(216, 197, 142, 0.85)); }
+.ny-bauble__ball { position: absolute; left: 0; top: calc(var(--len) * var(--kl) - var(--s) * var(--ks) * 0.06); width: calc(var(--s) * var(--ks)); height: calc(var(--s) * var(--ks) * 1.32); overflow: visible; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.55)); }
+@keyframes ny-sway { 0%, 100% { transform: rotate(-2.6deg); } 50% { transform: rotate(2.6deg); } }
+/* phones: the cards are narrow and the title starts high — one small ball per
+   card, on a short thread, in the row with the number */
+@media (max-width: 767px) {
+  .ny-bauble { --ks: 0.56; --kl: 0.3; --kx: 0.74; }
+  .ny-bauble:not(:first-child) { display: none; }
+}
 
 /* services and footer: falling gold dust over the whole block */
 html[data-season="ny"] .services { position: relative; }
@@ -223,6 +227,6 @@ html[data-season="ny"] .qcall::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ny-garland i, .ny-bauble, .mk-star, html[data-season="ny"] .qcall::after { animation: none !important; }
-  .ny-garland i { opacity: 0.9; }
+  .ny-glow, .ny-bauble, .mk-star, html[data-season="ny"] .qcall::after { animation: none !important; }
+  .ny-glow { opacity: 0.85; }
 }

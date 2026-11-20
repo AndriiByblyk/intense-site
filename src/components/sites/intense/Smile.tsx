@@ -33,7 +33,7 @@ export function Smile() {
               Тягніть повзунок: «до» і «після»
             </p>
           </div>
-          <Garland className="ny-garland--smile" />
+          <Garland className="ny-garland--smile" seed={11} />
           <Carousel name="smile" centreStart={1} clickToFront ignore=".cmp__handle, .smile-slide__btn" label="Галерея усмішок">
             {CASES.map((c, i) => (
               <div className="smile-card" key={c.id}>
