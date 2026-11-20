@@ -1471,9 +1471,9 @@ html { scroll-behavior: smooth; }
 .team-card__bg { filter: none; }
 
 /* Smile title is static markup now (was split into lines by a script) */
-.ismile__title span { display: block; }
-.ismile__title span:first-child { text-align: start; }
-.ismile__title span:last-child { text-align: end; }
+.ismile__title > span { display: block; }
+.ismile__title > span:first-child { text-align: start; }
+.ismile__title > span:last-child { text-align: end; }
 
 /* Booking — clean-ups found in the layout audit */
 .form__btns .group-btns { border: 0 !important; padding: 0 !important; background: none !important; box-shadow: none !important; border-radius: 999px !important; }
@@ -2035,7 +2035,7 @@ html { scroll-behavior: smooth; }
 .ismile__lead p { text-wrap: pretty; }
 @media (max-width: 767px) {
   .smile__title.ismile__title { font-size: clamp(36px, 10.6vw, 46px); line-height: 1.04; letter-spacing: -0.045em; margin-bottom: 0; }
-  .ismile__title span:last-child { text-align: start; }
+  .ismile__title > span:last-child { text-align: start; }
   .ismile__lead { gap: 16px; margin: 22px 0 36px; }
   .ismile__lead p { font-size: 16px; line-height: 1.55; }
   .ismile__how { gap: 12px; font-size: 13.5px !important; line-height: 1.35 !important; }

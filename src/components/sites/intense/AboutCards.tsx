@@ -89,6 +89,8 @@ export function AboutCards() {
           onPointerMove={onMove}
         >
           <span className="abx__glow" aria-hidden="true" />
+          {/* D2 · the reception's stone fills the empty half of the wide card */}
+          {c.size === "full" && <span className="abx__stone" aria-hidden="true" />}
           <div className="abx__top">
             <span className="abx__num">{String(i + 1).padStart(2, "0")}</span>
             <span className="abx__mark" aria-hidden="true">

@@ -4,6 +4,7 @@ import { IntenseLogo } from "@/components/sites/intense/IntenseLogo";
 import { SectionMark } from "@/components/sites/intense/motion/SectionMark";
 import { rise } from "@/components/sites/intense/motion/Rise";
 import { GoldDust } from "@/components/sites/intense/season/GoldDust";
+import { Decor } from "@/components/sites/intense/motion/Decor";
 import { BookingDemo, CardDemo, Replay } from "./demos";
 
 export const metadata: Metadata = {
@@ -79,6 +80,7 @@ export default function MotionBrandbook() {
       <link rel="stylesheet" href={v("/sites/intense/intense.css")} precedence="default" />
       <link rel="stylesheet" href={v("/sites/intense/brandbook.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/motion.css")} precedence="high" />
+      <link rel="stylesheet" href={v("/sites/intense/decor.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/season-ny.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/brandbook-motion.css")} precedence="high" />
 
@@ -109,6 +111,7 @@ export default function MotionBrandbook() {
               <a href="#m05"><span>M05</span>Напрями</a>
               <a href="#m06"><span>M06</span>Запис</a>
               <a href="#m07"><span>M07</span>Футер</a>
+              <a href="#decor"><span>D</span>Фони</a>
               <a href="#adapt"><span>↔</span>Адаптація</a>
               <a href="#ny"><span>✦</span>Новий рік</a>
             </nav>
@@ -296,6 +299,43 @@ export default function MotionBrandbook() {
                 { k: "Менше руху", v: "Логотип одразу зібраний" },
               ]}
             />
+          </div>
+        </section>
+
+        {/* fills for empty grounds */}
+        <section id="decor" className="bb__sec">
+          <div className="bb__wrap">
+            <h2 className="bb__h"><span>D</span> Фони для порожніх місць</h2>
+            <p className="bb__lead">
+              Великі темні поля поруч із заголовками заповнюємо не картинками зі стоку, а самою клінікою: чорним
+              каменем стіни, золотими підвісами-світильниками, ромбом із підписів блоків і теплим світлом. Усе
+              лежить позаду тексту, ледь помітне, і з’являється тим самим жестом, що й решта сайту.
+            </p>
+            <div className="bbm-dc-pair">
+              {[false, true].map((ny) => (
+                <figure key={String(ny)} className="bbm-dc-fig">
+                  <Replay className="bbm-demo--dc">
+                    <div className={`bbm-dc${ny ? " ny-preview" : ""}`}>
+                      <Decor zone="team" />
+                      <Decor zone="smile" />
+                      <div className="bbm-dc__text">
+                        <span className="bbm-dc__label">Наші лікарі</span>
+                        <p>Лікарі INTENSE працюють як одна команда</p>
+                      </div>
+                    </div>
+                  </Replay>
+                  <figcaption>{ny ? "Новорічна версія" : "Звичайна версія"}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="bbm-ny-list bbm-dc-list">
+              <div><b>D1</b><h4>Підвіси</h4><p>Тонкий шнур, коротка золота трубка і тепле світло на кінці — як світильники над стійкою. Шнури «спускаються» згори, світло спалахує останнім.<br /><i>Новий рік:</i> на шнурах мерехтять намистини світла, на кінці — зірка.</p></div>
+              <div><b>D2</b><h4>Камінь</h4><p>Чорний камінь стіни ресепшн, з краями, що тануть у фон. Зліва від цитати «Лікарі» і в правій половині картки «Онлайн-консультація».<br /><i>Новий рік:</i> на камені лежать дрібні золоті іскри.</p></div>
+              <div><b>D3</b><h4>Ромб</h4><p>Ромб із підписів блоків — великий, однією золотою лінією, що малює себе. Під першим рядком «Кожна усмішка».<br /><i>Новий рік:</i> контур стає ниткою вогників, що біжать по колу.</p></div>
+              <div><b>D4</b><h4>Тепле світло</h4><p>М’яка золота пляма під кожною зоною — ніби лампа трохи за кадром.<br /><i>Новий рік:</i> тепліша й яскравіша.</p></div>
+              <div><b>↔</b><h4>Телефон і планшет</h4><p>Заголовки там на всю ширину, тож лишаються лише короткі підвіси в кінці рядка з підписом блоку і камінь у картці. Ромб і великі зони — від 1200 px.</p></div>
+              <div><b>⚙</b><h4>Вага</h4><p>Одна текстура каменю 45 KB, решта — лінії й градієнти CSS. Нічого не рухається постійно, крім святкових вогників.</p></div>
+            </div>
           </div>
         </section>
 

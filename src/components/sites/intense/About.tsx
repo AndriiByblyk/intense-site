@@ -1,3 +1,4 @@
+import { Decor } from "./motion/Decor";
 import { SectionMark } from "./motion/SectionMark";
 import { ScrollWords } from "./ScrollWords";
 import { AboutCards } from "./AboutCards";
@@ -7,6 +8,7 @@ export function About() {
     <section id="section-about-us" className="about-us">
       <div className="container">
         <div className="about-us__head">
+          <Decor zone="about" />
           <div className="section-label" data-reveal>
             <SectionMark />
             <span>Філософія INTENSE</span>

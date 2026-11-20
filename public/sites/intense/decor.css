@@ -1,0 +1,93 @@
+/* =====================================================================
+   INTENSE — fills for empty dark grounds (Decor.tsx) · brandbook:
+   /brandbook/motion#decor. All of it sits behind the content (z-index -1
+   inside an isolated host) and never takes clicks.
+   D1 pendants · D2 stone · D3 diamond · D4 glow (+ stone in about card 03)
+   Arrival follows motion.css: drawn lines, ease-out, once, hidden states
+   only under html.mo-ready. New Year variants: season-ny.css.
+   ===================================================================== */
+.about-us__head, .team__top, .smile__inner { position: relative; isolation: isolate; }
+.dc { position: absolute; z-index: -1; pointer-events: none; }
+
+/* D4 · glow */
+.dc-glow {
+  position: absolute; left: var(--gx, 50%); top: var(--gy, 50%); width: var(--gs, 520px); aspect-ratio: 1;
+  translate: -50% -50%; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(184, 164, 108, 0.1), rgba(184, 164, 108, 0.035) 55%, transparent);
+  transition: opacity 1.6s var(--ease-out);
+}
+
+/* D2 · stone */
+.dc-stone {
+  position: absolute; inset: -12% -10% -12% 0;
+  background: url("clinic/stone.webp") 30% 40% / cover;
+  -webkit-mask: radial-gradient(62% 62% at 42% 50%, #000 0 30%, transparent 78%);
+  mask: radial-gradient(62% 62% at 42% 50%, #000 0 30%, transparent 78%);
+  transition: opacity 1.8s var(--ease-out);
+}
+.abx__stone {
+  position: absolute; inset: 0 0 0 38%; z-index: -1; pointer-events: none;
+  background: url("clinic/stone.webp") 70% 30% / cover;
+  -webkit-mask: linear-gradient(to right, transparent, #000 48%);
+  mask: linear-gradient(to right, transparent, #000 48%);
+  opacity: 0.9;
+}
+
+/* D1 · pendants: cord, gold tube, light */
+.dc-pend { position: absolute; top: 0; left: var(--x); width: 1px; height: var(--len); }
+.dc-pend::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(184, 164, 108, 0), rgba(184, 164, 108, 0.42) 30%, rgba(184, 164, 108, 0.7));
+  transform-origin: top; transition: transform 1.4s var(--ease-out) calc(var(--n) * 140ms + var(--d, 0ms));
+}
+.dc-pend__lamp {
+  position: absolute; left: -1px; bottom: 0; width: 3px; height: 46px; border-radius: 1px;
+  background: linear-gradient(to right, #7d6c3f, #e3cf96 45%, #9d8a54);
+  transition: opacity 0.6s calc(0.9s + var(--n) * 140ms + var(--d, 0ms));
+}
+.dc-pend__light {
+  position: absolute; left: 50%; bottom: -15px; width: 30px; height: 30px; translate: -50% 0; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 240, 200, 0.95), rgba(216, 197, 142, 0.4) 38%, rgba(216, 197, 142, 0));
+  transition: opacity 0.9s calc(1.1s + var(--n) * 140ms + var(--d, 0ms)), transform 0.9s var(--ease-out) calc(1.1s + var(--n) * 140ms + var(--d, 0ms));
+}
+.dc-pend__beads, .dc-pend__star, .dc-dia__lights { display: none; }
+
+/* D3 · diamond */
+.dc-dia { position: absolute; overflow: visible; }
+.dc-dia__line { fill: none; stroke: rgba(184, 164, 108, 0.32); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1; transition: stroke-dashoffset 2.2s var(--ease-io) calc(0.2s + var(--d, 0ms)); }
+.dc-dia__dot { fill: var(--gold); transform-box: fill-box; transform-origin: center; transition: opacity 0.6s calc(1.8s + var(--d, 0ms)), transform 0.6s var(--ease-out) calc(1.8s + var(--d, 0ms)); }
+
+/* arrival */
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-glow,
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-stone,
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-pend__lamp { opacity: 0; }
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-pend::before { transform: scaleY(0); }
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-pend__light { opacity: 0; transform: scale(0.6); }
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__line { stroke-dashoffset: 1; }
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__dot { opacity: 0; transform: scale(0.4); }
+
+/* placement — wide screens: the empty column beside each heading */
+@media (min-width: 1200px) {
+  .dc--about { left: 0; top: 44px; width: calc(100% - 1070px); height: 270px; }
+  .dc--team { left: -32px; top: -110px; width: calc(100% - 964px - 8px); height: 380px; }
+  .dc--smile { left: 0; top: 196px; width: 54%; height: 360px; }
+  .dc--smile .dc-dia { left: 16%; top: 2%; width: 300px; height: 300px; }
+}
+/* tablets and phones: the headings take the full width, so only short
+   pendants hang at the right end of the label row; no stone, no diamond */
+@media (max-width: 1199px) {
+  .dc--smile { display: none; }
+  .dc--about, .dc--team { right: 0; top: -6px; width: 150px; height: 80px; }
+  .dc--about .dc-stone, .dc--team .dc-stone { display: none; }
+  .dc-pend { height: calc(var(--len) * 0.22); }
+  .dc-pend__lamp { height: 18px; }
+  .dc-pend__light { width: 22px; height: 22px; bottom: -11px; }
+  .dc-glow { width: 220px; }
+}
+@media (max-width: 767px) {
+  .abx__stone { inset: 0 0 0 20%; opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-pend::before, .dc-pend__lamp, .dc-pend__light, .dc-dia__line, .dc-dia__dot, .dc-glow, .dc-stone { transition: none; }
+}

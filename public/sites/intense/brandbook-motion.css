@@ -129,3 +129,22 @@
 @media (prefers-reduced-motion: reduce) {
   .bbm-strip { animation: none; opacity: 0.45; }
 }
+
+/* D · fills demo: the zones are placed for the site's headings, here re-placed in a frame */
+.bbm-dc-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.bbm-dc-fig figcaption { margin-top: 10px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.bbm-demo--dc { padding: 0; min-height: 0; }
+.bbm-dc { position: relative; isolation: isolate; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 22px; background: var(--ink); }
+.bbm-dc .dc--team { left: 0; top: 0; width: 46%; height: 72%; right: auto; }
+.bbm-dc .dc--team .dc-stone { display: block; }
+.bbm-dc .dc--team .dc-pend { height: calc(var(--len) * 0.62); }
+.bbm-dc .dc--team .dc-pend__lamp { height: 34px; }
+.bbm-dc .dc--smile { display: block; right: 4%; bottom: 6%; left: auto; top: auto; width: 34%; aspect-ratio: 1; height: auto; }
+.bbm-dc .dc--smile .dc-dia { left: 0; top: 0; width: 100%; height: 100%; }
+.bbm-dc .dc-glow { width: calc(var(--gs) * 0.6); }
+.bbm-dc__text { position: absolute; left: 50%; top: 12%; right: 6%; }
+.bbm-dc__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.bbm-dc__text p { margin-top: 12px; font-size: clamp(16px, 1.7vw, 24px); line-height: 1.2; font-weight: 500; text-transform: uppercase; color: var(--paper); }
+.bbm-dc-list { margin-top: 28px; }
+.bbm-dc-list i { color: var(--gold); font-style: normal; }
+@media (max-width: 1023px) { .bbm-dc-pair { grid-template-columns: 1fr; } }

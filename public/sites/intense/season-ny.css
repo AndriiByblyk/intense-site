@@ -13,6 +13,7 @@
    N4  the header logo's bars glow one after another, like a garland
    N5  the footer wordmark catches a pass of light after it builds
    N6  the booking card warms: a second gold glow in its far corner
+   +   the fills from decor.css turn festive (end of this file)
    ===================================================================== */
 .ihero__season, .ny-dust { display: none; }
 
@@ -86,4 +87,45 @@ html[data-season="ny"] .bk__card, .ny-preview .bk__card {
   .ny-star, .ilogo__e i::after { animation: none !important; }
   .ny-star { opacity: 1; }
   :is(html[data-season="ny"], .ny-preview) .ifoot__mark.is-in .ilogo__l > span { -webkit-text-fill-color: currentColor; background: none; animation: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Fills (decor.css) in the New Year season
+   D1 pendants → garlands: beads of light twinkle along each cord, a star
+      replaces the gold tube at the tip
+   D2 stone → gold specks resting on it (static)
+   D3 diamond → a string of lights running round the outline
+   D4 glow → warmer
+   --------------------------------------------------------------------- */
+:is(html[data-season="ny"], .ny-preview) .dc-glow { background: radial-gradient(closest-side, rgba(216, 197, 142, 0.16), rgba(184, 164, 108, 0.05) 55%, transparent); }
+
+:is(html[data-season="ny"], .ny-preview) .dc-pend__beads { display: block; position: absolute; inset: 0; transition: opacity 0.8s calc(1s + var(--n) * 140ms + var(--d, 0ms)); }
+.dc-pend__beads i {
+  position: absolute; left: 50%; top: calc(var(--t) * 100%); width: 9px; height: 9px; translate: -50% -50%; border-radius: 50%;
+  background: radial-gradient(closest-side, #fff4d2, rgba(216, 197, 142, 0.55) 40%, rgba(216, 197, 142, 0));
+  animation: ny-bead 3.6s ease-in-out infinite; animation-delay: calc(var(--k) * 0.45s + var(--n) * 0.3s);
+}
+@keyframes ny-bead { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+:is(html[data-season="ny"], .ny-preview) .dc-pend__lamp { display: none; }
+:is(html[data-season="ny"], .ny-preview) .dc-pend__star {
+  display: block; position: absolute; left: 50%; bottom: -7px; width: 14px; height: 14px; translate: -50% 0;
+  background: #f3dfa6; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  animation: ny-star 4.8s ease-in-out infinite; animation-delay: calc(var(--n) * 0.6s);
+}
+html.mo-ready .dc[data-reveal]:not(.is-in) :is(.dc-pend__beads, .dc-pend__star) { opacity: 0; }
+
+.dc-stone::after, .abx__stone::after { content: ""; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='300'%3E%3Ccircle cx='136' cy='45' r='1.6' fill='%23d8c58e' fill-opacity='0.38'/%3E%3Ccircle cx='345' cy='28' r='1.2' fill='%23d8c58e' fill-opacity='0.38'/%3E%3Ccircle cx='213' cy='11' r='1.0' fill='%23d8c58e' fill-opacity='0.6'/%3E%3Ccircle cx='101' cy='165' r='0.6' fill='%23d8c58e' fill-opacity='0.85'/%3E%3Ccircle cx='52' cy='67' r='1.6' fill='%23d8c58e' fill-opacity='0.7'/%3E%3Ccircle cx='26' cy='176' r='0.6' fill='%23d8c58e' fill-opacity='0.94'/%3E%3Ccircle cx='20' cy='258' r='0.8' fill='%23d8c58e' fill-opacity='0.6'/%3E%3Ccircle cx='227' cy='171' r='1.2' fill='%23d8c58e' fill-opacity='0.84'/%3E%3Ccircle cx='76' cy='174' r='1.6' fill='%23d8c58e' fill-opacity='0.46'/%3E%3Ccircle cx='41' cy='214' r='1.2' fill='%23d8c58e' fill-opacity='0.39'/%3E%3Ccircle cx='87' cy='204' r='1.0' fill='%23d8c58e' fill-opacity='0.82'/%3E%3Ccircle cx='196' cy='277' r='0.8' fill='%23d8c58e' fill-opacity='0.53'/%3E%3Ccircle cx='334' cy='210' r='0.7' fill='%23d8c58e' fill-opacity='0.4'/%3E%3Ccircle cx='126' cy='149' r='0.8' fill='%23d8c58e' fill-opacity='0.79'/%3E%3Ccircle cx='121' cy='294' r='0.6' fill='%23d8c58e' fill-opacity='0.66'/%3E%3Ccircle cx='69' cy='103' r='1.0' fill='%23d8c58e' fill-opacity='0.6'/%3E%3Ccircle cx='404' cy='23' r='1.2' fill='%23d8c58e' fill-opacity='0.69'/%3E%3Ccircle cx='368' cy='94' r='1.6' fill='%23d8c58e' fill-opacity='0.56'/%3E%3Ccircle cx='209' cy='239' r='0.6' fill='%23d8c58e' fill-opacity='0.85'/%3E%3Ccircle cx='397' cy='142' r='1.6' fill='%23d8c58e' fill-opacity='0.39'/%3E%3Ccircle cx='307' cy='93' r='1.2' fill='%23d8c58e' fill-opacity='0.95'/%3E%3Ccircle cx='345' cy='85' r='1.0' fill='%23d8c58e' fill-opacity='0.88'/%3E%3Ccircle cx='146' cy='282' r='0.8' fill='%23d8c58e' fill-opacity='0.45'/%3E%3Ccircle cx='49' cy='18' r='0.8' fill='%23d8c58e' fill-opacity='0.43'/%3E%3Ccircle cx='104' cy='117' r='1.0' fill='%23d8c58e' fill-opacity='0.4'/%3E%3Ccircle cx='189' cy='165' r='0.7' fill='%23d8c58e' fill-opacity='0.84'/%3E%3Ccircle cx='363' cy='84' r='1.0' fill='%23d8c58e' fill-opacity='0.94'/%3E%3Ccircle cx='287' cy='114' r='0.7' fill='%23d8c58e' fill-opacity='0.44'/%3E%3Ccircle cx='74' cy='70' r='0.7' fill='%23d8c58e' fill-opacity='0.36'/%3E%3Ccircle cx='349' cy='55' r='0.8' fill='%23d8c58e' fill-opacity='0.35'/%3E%3Ccircle cx='176' cy='111' r='1.2' fill='%23d8c58e' fill-opacity='0.54'/%3E%3Ccircle cx='53' cy='258' r='1.2' fill='%23d8c58e' fill-opacity='0.74'/%3E%3Ccircle cx='311' cy='137' r='1.6' fill='%23d8c58e' fill-opacity='0.83'/%3E%3Ccircle cx='165' cy='120' r='0.6' fill='%23d8c58e' fill-opacity='0.64'/%3E%3C/svg%3E") 0 0 / 420px 300px; opacity: 0; }
+:is(html[data-season="ny"], .ny-preview) :is(.dc-stone, .abx__stone)::after { opacity: 0.8; }
+
+:is(html[data-season="ny"], .ny-preview) .dc-dia__line { stroke: rgba(184, 164, 108, 0.16); }
+:is(html[data-season="ny"], .ny-preview) .dc-dia__lights {
+  display: inline; fill: none; stroke: #f3dfa6; stroke-width: 4; stroke-linecap: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 0 0.05; animation: ny-chase 4s linear infinite; /* ~14 px apart: with non-scaling-stroke the dash runs in screen units */
+}
+@keyframes ny-chase { to { stroke-dashoffset: -0.1; } }
+html.mo-ready .dc[data-reveal]:not(.is-in) .dc-dia__lights { opacity: 0; }
+.dc-dia__lights { transition: opacity 1s 2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dc-pend__beads i, .dc-pend__star, .dc-dia__lights { animation: none !important; }
 }

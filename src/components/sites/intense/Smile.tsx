@@ -1,3 +1,4 @@
+import { Decor } from "./motion/Decor";
 import { rise, wordCount } from "./motion/Rise";
 import { CompareReveal } from "./CompareReveal";
 import { Carousel } from "./Carousel";
@@ -8,6 +9,7 @@ export function Smile() {
     <section id="section-smiles-gallery" className="smile">
       <div className="container">
         <div className="smile__inner">
+          <Decor zone="smile" />
           <div className="section-label section-label-smile ismile__label" data-reveal>
             <span>Галерея усмішок</span>
             <img decoding="async" src="/sites/intense/theme/images/arrow-grey-bottom.svg" alt="" />

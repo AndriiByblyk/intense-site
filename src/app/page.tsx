@@ -83,6 +83,7 @@ export default function Home() {
       <link rel="stylesheet" href={v(`${THEME}/css/theme-style.css`)} precedence="default" />
       <link rel="stylesheet" href={v("/sites/intense/intense.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/motion.css")} precedence="high" />
+      <link rel="stylesheet" href={v("/sites/intense/decor.css")} precedence="high" />
       <link rel="stylesheet" href={v("/sites/intense/season-ny.css")} precedence="high" />
       <Header />
       <main>
