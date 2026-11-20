@@ -63,8 +63,10 @@ html.mo-ready .section-label-smile[data-reveal]:not(.is-in) > img { transform: t
    --------------------------------------------------------------------- */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    html { overflow-x: clip; }
-    .main, .about-us, .doctor, .smile, .team, .advice { view-timeline: --strip block; }
+    /* the strips are wider than the page so they can slide; each block clips
+       them at its sides (on html the clip is not enough: phones still widen
+       the layout viewport to fit them and zoom the whole page out) */
+    .main, .about-us, .doctor, .smile, .team, .advice { view-timeline: --strip block; overflow-x: clip; }
     .main::after, .about-us::before, .about-us::after, .about-us__head::after, .doctor::before,
     .smile::before, .team::before, .team::after, .advice::before, .advice::after {
       left: calc(-1 * var(--drift)); right: calc(-1 * var(--drift));
