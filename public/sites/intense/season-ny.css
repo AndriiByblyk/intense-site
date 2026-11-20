@@ -230,3 +230,11 @@ html[data-season="ny"] .qcall::after {
   .ny-glow, .ny-bauble, .mk-star, html[data-season="ny"] .qcall::after { animation: none !important; }
   .ny-glow { opacity: 0.85; }
 }
+
+/* Nothing festive may stick out past the page's sides: on phones even a few
+   px of overflow makes the browser zoom the whole page out (the layout
+   viewport grew 390 → 426 px and pushed the fixed call button off screen).
+   The edge bulbs' halos are clipped to the garland's width; the pendants'
+   glow is dropped where the pendants are short (tablets and phones). */
+.ny-garland { overflow-x: clip; overflow-y: visible; }
+@media (max-width: 1199px) { .dc-glow { display: none; } }
